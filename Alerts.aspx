@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Alerts.aspx.cs" Inherits="Alerts" hi this is bhanu and Anik%>
 
-<%@ Register TagPrefix="uc1" TagName="Top" Src="~/UserControl/MainControl.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="Top" Src="~/UserControl/MainControl.ascx" updated by Anik Now%>
 <%@ Register TagPrefix="uc2" TagName="MiddleTop" Src="~/UserControl/TabControl.ascx" %>
 <%@ Register TagPrefix="uc3" TagName="Right" Src="~/UserControl/RightControl.ascx" %>
 <%@ Register TagPrefix="uc4" TagName="footer" Src="~/UserControl/Footer.ascx" %>
