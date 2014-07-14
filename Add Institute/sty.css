@@ -1,0 +1,75 @@
+body{
+		background-color:#000000;
+		margin:0 auto;
+		padding:0;
+		}
+		
+#wel{
+			background-color:#FFFFFF;
+			background-image:url(images/welcome_bg.jpg);
+			background-repeat:no-repeat;
+			width:790px;
+			height:540px;
+			margin:0 auto;
+			padding:0;
+			}
+.wel_h{
+		widows:987px;
+		height:34px;
+		font-family:"Times New Roman", Times, serif;
+		font-size:16px;
+		font-weight:bold;
+		color:#FFFFFF;
+		float:left;
+		line-height:34px;
+		vertical-align:middle;
+		padding-right:10px;
+		}	
+		
+.wel_img{
+			width:416px;
+			height:118px;
+			margin:100px 0 0 -120px;
+			float:left;
+
+			}
+.wel_text{
+			width:416px;
+			height:30px;
+			margin:10px 0 0 90px;
+			float:left;
+			font-family:Arial, Helvetica, sans-serif;
+			font-size:26px;
+			color:#000000;
+			font-weight:bold;
+			line-height:30px;
+			vertical-align:middle;
+			text-align:center;
+			text-transform:uppercase;
+			}			
+				
+.wel_text_sm{
+				width:416px;
+				height:30px;
+				margin:0 0 0 90px;
+				float:left;
+				font-family:"Times New Roman", Times, serif;
+				font-size:20px;
+				color:#001e6a;
+				line-height:30px;
+				vertical-align:middle;
+				text-align:center;
+			}			
+													
+.text{
+				width:500px;
+				height:100px;
+				margin:10px 0 0 90px;
+				float:left;
+				font-family:Arial, Helvetica, sans-serif;
+				font-size:12px;
+				color:#000000;
+				text-align:justify;
+			}			
+													
+			
