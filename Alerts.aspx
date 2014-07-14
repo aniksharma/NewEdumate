@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Alerts.aspx.cs" Inherits="Alerts" hi this is bhanu and Anik%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" this is india.com CodeFile="Alerts.aspx.cs" Inherits="Alerts" hi this is bhanu and Anik%>
 
 <%@ Register TagPrefix="uc1" TagName="Top" Src="~/UserControl/MainControl.ascx" updated by Anik Now%>
 <%@ Register TagPrefix="uc2" TagName="MiddleTop" Src="~/UserControl/TabControl.ascx" %>
