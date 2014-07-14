@@ -1,0 +1,277 @@
+﻿/* Text Boxes */
+
+input[type='Password'], input[type='text'],input[type='Password']:focus,input[type='text']:focus,textarea,select
+	{  width:200px;
+		border: 1px solid #C5D7DB;
+		border-radius:3px;
+		box-shadow:0 4px 4px #F1F0F0 INSET;
+		height:20px;
+	 padding-left:5px;
+	}
+select 
+{
+	 width:200px;
+	height:25px;
+}	
+
+input[type='Password']:focus,input[type='text']:focus,input[type='Password']:hover,input[type='text']:hover, textarea:hover, select:hover 
+
+{
+	box-shadow:none;
+	border: 1px solid Sienna;
+}
+
+Select 
+{
+	padding:3px;
+}
+
+			.b
+			{ background-color:#C5D7DB;
+			  border-radius:5px;
+				}
+
+.blank
+{
+	height:10px;
+}
+
+/* Checkbox lblmsg */
+
+.labelMsgRed ,.labelMsgGreen
+{
+	font-family:Verdana;
+	font-size:15px;
+}
+.labelMsgRed
+{
+  color:Red;
+}
+.labelMsgGreen
+{
+	color:Green;
+}
+
+/* Checkbox Radiobutton */
+
+.Checkbox ,.RadioButton
+{
+
+padding-left:4px;
+
+	 font-family:Verdana;
+	
+	 font-size:12px;
+	 
+}
+
+.Checkbox:hover ,.RadioButton:hover
+{
+	  background:#C7D1DD;
+	  
+}
+
+
+
+.BoxOne ,.BoxTwo ,.BoxThree ,.BoxOneRound ,.BoxTwoRound ,.BoxThreeRound,.BoxFour,.BoxFourRound,.BoxBlankRound
+	
+	 {
+	 	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	   margin :0px 0px 0px 0px ;
+	   padding:0px 0px 0px 0px;
+	 	border-style:solid;
+	 	border-bottom-width:2px;
+	 	border-left-width:2px;
+	 	border-right-width:2px;
+	 	border-top-width:2px;
+	 	border-collapse:collapse;
+	    width:100%;
+	     font-family: Verdana;
+          border-color:Black;
+          border-spacing:0px;
+	 	
+	}
+	.BoxOne , .BoxOneRound 
+	
+	{
+		border-color:#7A9F7D;
+	    background:#A1AED1; 	
+	}
+	.BoxTwo ,.BoxTwoRound 
+	{
+		border-color:#616B62;
+	 background:#EDEDED; 	
+
+	 	
+	}
+	.BoxThree ,.BoxThreeRound
+	{
+		border-color:#616B62;
+	  background:#EEEFFF; 	
+
+	 	
+	}
+	.BoxFour,.BoxFourRound
+	{
+	 border-color:#ffffff;
+	  background:#ffffff; 	
+
+		
+	}
+	.BoxOneRound ,.BoxTwoRound ,.BoxThreeRound ,.BoxFourRound
+	{
+		
+		border-color:#616B62;
+		 -moz-border-radius:20px;
+        -webkit-border-radius:20px;
+        border-adius:20px;
+       behavior:url(border-radius.htc);
+
+	}	 
+	 
+	 
+.validation
+{
+	border: thin solid #CC0000;
+	padding: 0px;
+	margin: 0px;
+	font-family: "Trebuchet MS" , Arial, Helvetica, sans-serif;
+	background-color: #F5FA54;
+}
+
+
+
+	  .valid
+{
+	border: thin solid #333333;
+	padding: 0px;
+	margin: 0px;
+	width: 200px;
+	font-family: Verdana;
+	background-color: #999999;
+}
+
+.crosbutton
+{
+ color:White; 
+}
+
+/* formated table here */
+.MasterTableLeft , .MasterTableCenter ,.NewTableLeft 
+{
+font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+width:100%;
+border-collapse:collapse;
+min-height:500px;
+}
+
+.MasterTableLeft td , .MasterTableCenter th ,.MasterTableCenter td , .MasterTableLeft th
+{
+font-size:12px;
+border:1px solid #98bf21;
+padding:0px 0px 0px 0px;
+}
+
+.MasterTableLeft th, .MasterTableCenter th
+{
+	font-size: 15px;
+	padding-top: 5px;
+	padding-bottom: 4px;
+	background-color:#3C88C9;/* #4F9195; /* #006699; /*#A7C942;   #00779E;*/
+	color: #fff;
+	border: 1px solid #98bf21;
+	text-align: center;
+}
+
+  .MasterTableLeft td, .NewTableLeft td
+{
+	text-align:left;
+	padding-left:15px;
+
+
+}
+
+.NewTableLeft td  
+{
+	line-height:30px;
+	vertical-align:top;	
+}
+.MasterTableCenter th , .MasterTableCenter td
+{
+	text-align:center;
+}
+
+
+.MasterTableLeft tr.alt td, .MasterTableCenter tr.alt td
+{
+	color: #000;
+	background-color:#D4DDE6;/*#C1D6F7*/
+}
+
+
+.MasterTableLeft  .row-over ,MasterTableCenter  .row-over 
+{ 
+	background-color:#e5ecf9;
+}
+
+.MasterTableLeft .row-select ,MasterTableCenter .row-select
+{ 
+	background-color:#7aa5d6;
+	color:#fff;
+}
+
+
+
+.NewTableLeft th
+{
+	line-height:30px;
+	 color:White; 
+	 padding-left:20px;
+	 vertical-align:middle;
+	 background-image:url(../img/gdd.jpg);
+	 background-repeat:no-repeat;
+	 background-position:left;
+	 text-align:left;
+	 font-weight:600;	  	 
+}
+
+.MasterTableLeft .row-data ,MasterTableCenter .row-data
+{ 
+	background-color:#ccc;
+	color:#fff;
+}
+/*
+table
+{
+	border-style: none;
+	border-color: inherit;
+	border-width: 0;
+	padding: 0;
+	font-size:13px;	
+	border-spacing:0;	   	    
+	text-align:left;
+	color:#666666;  
+	font-family: "Helvetica Neue","Lucida Sans Unicode","Lucida Grande","Segoe UI","Verdana","Helvetica","Arial","sans-serif"; 
+	 }*/
+.MasterTableCenter1 
+{
+
+color: #fff;
+width: 80%;
+}
+
+.MasterTableCenter1 th 
+{
+  font-size: 20px;
+color: white;
+font-family: serif;
+background-color: #3379af;
+}
+
+.MasterTableCenter1 td 
+{
+    background-color: #ccc;
+color: #000;
+font-size: 16px;
+text-align: center;
+}

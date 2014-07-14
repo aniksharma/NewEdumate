@@ -1,0 +1,238 @@
+﻿html {behavior:url('css3.1.htc');}
+
+.box-shadow
+	{
+	background: none repeat scroll 0 0 #FFFFFF;
+	box-shadow: 5px 5px 10px #CDCDCD;
+/*	 border-left:1px solid #DADADA;
+	 border-top:1px solid #DADADA; */
+
+-moz-box-shadow: 2px 2px 10px #999;
+	-webkit-box-shadow: 2px 2px 10px #999;
+
+	 /* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=135, Color='#CDCDCD')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=135, Color='#CDCDCD');
+
+	}
+.box-shadow .contents2 {
+    clear: left;
+    padding-left:10px;
+}
+.box-shadow .contents, .box-shadow .contents2 {
+    font-family: Tahoma,Geneva,sans-serif;
+}
+.box-shadow strong
+{
+	font-weight:bold;
+	font-size:14px;
+ padding-left:15px;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+	 color:#0099FF;	 	 
+}
+
+
+#left_ad2{
+		width:795px;
+		height:227px;
+		float:left;
+		/*border-bottom:#dedede 1px dotted;*/
+		
+		margin:10px 2px 10px 2px;
+		}
+
+.linehead
+
+{
+	line-height:30px;
+	 color:White; 
+	 padding-left:20px;
+	 vertical-align:middle;
+	 background-image:url(http://www.edumate.edu.in/img/gdd.jpg);
+	 background-repeat:no-repeat;
+	 background-position:left;
+	 text-align:left;
+	 font-weight:600;	  	 
+}
+.code
+{ 
+	border:solid 1px Gray;
+	float:left;
+	text-align:center;
+	font-weight:bold;
+	 background-image:url(http://www.edumate.edu.in/Add Institute/Images/i-02.gif);
+	 background-position:center;
+	 background-repeat:repeat-x;
+  height:35px;
+  width:100px;
+  color:Blue;
+  font-family:lucida grande,sans-serif;
+  font-size:16px;
+  line-height:33px;
+	}
+	
+	.lab
+	{ top:15px;
+	
+	}
+	
+/* Page Numbers */
+#pages {
+ font: 83%/1.4 arial, helvetica, sans-serif;
+    padding: 1em;
+    margin: 1em 0;
+    clear: left;
+    font-size: 85%;
+}
+
+#pages a, #pages span {
+	color:#0a6600;
+    display: block;
+    float: left;
+    padding: 0.2em 0.5em;
+    margin-right: 0.1em;
+    border: 1px solid #fff;
+    background: #fff;
+}
+
+#pages span.current {
+    border: 1px solid #37b12e;
+    font-weight: bold;
+    background: #478901;
+    color: #fff;
+}
+
+#pages a {
+    border: 1px solid #b1e59a;
+    text-decoration: none;
+}
+
+#pages a:hover {
+    border-color: #539f01;
+}
+
+#pages a.nextprev {
+    font-weight: bold;
+}
+
+#pages a.nextprev1
+{
+	font-weight:normal;
+}
+
+#pages span.nextprev {
+    color: #666;
+}
+
+#pages span.nextprev {
+    border: 1px solid #ddd;
+    color: #999;
+}
+
+#pages .nextprev-next {
+    float: right;
+}	
+/* ************************************** 
+*/
+
+
+.newscontent
+{
+ 
+	color:#444444;
+	font-size:13px;
+	width:700px;
+	padding:10px;
+	text-align:justify;
+	font-family: Tahoma,Geneva,sans-serif;
+
+}
+.newscontent h1{
+	font-size:18px;
+	color:#006666;
+	border-bottom: 1px #666666 dotted;
+	
+}
+
+.newscontent h1 p{
+	font-size:12px;
+	color:#444444;
+}
+
+.rightadsdiv{
+	margin-top:30px;
+	margin-right:20px;
+	float:right;
+	width:200px;
+	min-height:400px;
+/*	background-color:#EEE; */
+	color:#0066CC;
+}
+
+.rightadsdiv div
+{
+	margin-top:10px;
+}
+
+img
+{
+	border:0px;
+}
+.backcrum{
+	margin-top:10px;
+	height:30px;
+	background-color:#64bdf9;
+	color:#FFFFFF;
+	padding:3px;
+	padding-left:10px;
+}
+
+
+.searchbox{
+	font-size:13px;
+	margin-left:20px;
+	width:700px;
+	height:90px;
+	background:#ECF6FF;
+	margin-top:10px;
+	font-family: Tahoma,Geneva,sans-serif;
+	color:#2B6396;
+}
+
+.poupTotal
+{
+	background-color:#02A5C8; 
+	width:320px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	
+	
+	
+}
+.popupboxheading
+{
+
+background-color:#1C7487; 
+color:#F9F8F1; 
+font-size:15px; 
+text-align:center; 
+font-family:Arial;
+line-height:25px; 
+font-weight:bold;
+}
+
+.pouptext
+{
+	
+line-height:20px; 
+padding:10px; 
+text-align:justify; 
+font-size:13px; 
+font-weight:600; 
+color:#F9F8F1;	
+}
