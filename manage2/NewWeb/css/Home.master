@@ -1,0 +1,258 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Home.master.cs" Inherits="manage2_NewWeb_Home" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="~/manage2/NewWeb/css/common.css"
+        type="text/css" charset="utf-8" />
+    <link id="tcss" runat="server" rel="stylesheet" href="css/teacher3.css" type="text/css"
+        charset="utf-8" />
+    <link href='http://fonts.googleapis.com/css?family=Monda:400,700' rel='stylesheet'
+        type='text/css'>
+    <script type="text/javascript" src="~/manage2/NewWeb/jsfiles/jquery-1.3.2.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <div id="divmenuCollage" runat="server" visible="false">
+            <ul id='navigation'>
+                <li class='home'>
+                    <asp:HyperLink ID="linkchome" runat="server" NavigateUrl="#" title='home'>
+                    </asp:HyperLink>
+                </li>
+                <li class='about'>
+                    <asp:HyperLink ID="linkcabout" runat="server" NavigateUrl="#" title='About'>
+                    </asp:HyperLink>
+                </li>
+                <li class=''>
+                    <asp:HyperLink ID="linkcdirector" runat="server" NavigateUrl="#" title='experience'>
+                    </asp:HyperLink>
+                </li>
+                <li class='courses'>
+                    <asp:HyperLink ID="linkccourses" runat="server" NavigateUrl="#" title='Achievements'>
+                    </asp:HyperLink>
+                </li>
+                <li class='infrastructure'>
+                    <asp:HyperLink ID="linkcinfrastructure" runat="server" NavigateUrl="#" title='Activities'>
+                    </asp:HyperLink>
+                </li>
+                <li class='gallery'>
+                    <asp:HyperLink ID="linkcgallery" runat="server" NavigateUrl="#" title='Gallery'>
+                    </asp:HyperLink>
+                </li>
+                <li class='contact'>
+                    <asp:HyperLink ID="linkcContact" runat="server" NavigateUrl="#" title='Contact'> 
+                    </asp:HyperLink>
+                </li>
+            </ul>
+        </div>
+        <div id="divmenuprofessional" runat="server" visible="false">
+            <ul id='navigation'>
+                <li class='home'>
+                    <asp:HyperLink ID="linkphome" runat="server" NavigateUrl="#" title='home'>
+                    </asp:HyperLink>
+                </li>
+                <li class='about'>
+                    <asp:HyperLink ID="linkpabout" runat="server" NavigateUrl="#" title='About'>
+                    </asp:HyperLink>
+                </li>
+                <li class='portfolio'>
+                    <asp:HyperLink ID="linkpportfolio" runat="server" NavigateUrl="#" title='experience'>
+                    </asp:HyperLink>
+                </li>
+                <li class='achievements'>
+                    <asp:HyperLink ID="linkpachievements" runat="server" NavigateUrl="#" title='Achievements'>
+                    </asp:HyperLink>
+                </li>
+                <li class='blog'>
+                    <asp:HyperLink ID="linkpblog" runat="server" NavigateUrl="#" title='Activities'>
+                    </asp:HyperLink>
+                </li>
+                <li class='gallery'>
+                    <asp:HyperLink ID="linkpgallery" runat="server" NavigateUrl="#" title='Gallery'>
+                    </asp:HyperLink>
+                </li>
+                <li class='contact'>
+                    <asp:HyperLink ID="linkpcontact" runat="server" NavigateUrl="#" title='Contact'> 
+                    </asp:HyperLink>
+                </li>
+            </ul>
+        </div>
+        <div id="divmenuTeacher" runat="server" visible="false">
+            <ul id='navigation'>
+                <li class='home'>
+                    <asp:HyperLink ID="linkthome" runat="server" NavigateUrl="#" title='home'>
+                    </asp:HyperLink>
+                </li>
+                <li class='about'>
+                    <asp:HyperLink ID="linktabout" runat="server" NavigateUrl="#" title='About'>
+                    </asp:HyperLink>
+                </li>
+                <li class='courses'>
+                    <asp:HyperLink ID="linktcourses" runat="server" NavigateUrl="#" title='experience'>
+                    </asp:HyperLink>
+                </li>
+                <li class='academicmodule'>
+                    <asp:HyperLink ID="linktacademicmodule" runat="server" NavigateUrl="#" title='Achievements'>
+                    </asp:HyperLink>
+                </li>
+                <li class='achievement'>
+                    <asp:HyperLink ID="linktachievement" runat="server" NavigateUrl="#" title='Activities'>
+                    </asp:HyperLink>
+                </li>
+                <li class='activities'>
+                    <asp:HyperLink ID="linktactivities" runat="server" NavigateUrl="#" title='Activities'>
+                    </asp:HyperLink>
+                </li>
+                <li class='gallery'>
+                    <asp:HyperLink ID="linktgallery" runat="server" NavigateUrl="#" title='Gallery'>
+                    </asp:HyperLink>
+                </li>
+                <li class='contact'>
+                    <asp:HyperLink ID="linktcontact" runat="server" NavigateUrl="#" title='Contact'> 
+                    </asp:HyperLink>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="header">
+                <div class="logo">
+                    <img id="imglogo" src="" alt="" height="100" width="120" runat="server" />
+                </div>
+                <span class="head">
+                    <asp:Label ID="lblCollegeName" CssClass="MainHead" runat="server">Name</asp:Label>
+                </span>
+            </div>
+            <div class="content">
+                <div class="aboutcontent">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div class="aboutrightblock">
+                    <h3>
+                        Quick Links</h3>
+                    <asp:Repeater ID="repQuickLinks" runat="server">
+                        <ItemTemplate>
+                            <div style="padding-bottom: 5px;">
+                                <a href='<%#Quicklink(Eval("caloneyId"))%>'>
+                                    <%#Eval("caloneyName")%></a>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    <h3>
+                        Quick Gallery</h3>
+                    <asp:Repeater ID="repQuickGallery" runat="server">
+                        <ItemTemplate>
+                            <div style="padding-bottom: 5px;">
+                                <a href='<%#gallerylink(Eval("caloneyId"))%>'>
+                                    <%#Eval("caloneyName")%></a>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+            </div>
+            <div class="widesubcontent">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="footer">
+                <div id="divfooterCollage" runat="server" visible="false">
+                    <center>
+                        <table cellpadding="0" cellspacing="0" width="60%">
+                            <tr>
+                                <td>
+                                    <asp:HyperLink ID="HypercTerms" runat="server" NavigateUrl="#">
+                     Terms & Condition </asp:HyperLink>
+                                </td>
+                                <td>
+                                    <asp:HyperLink ID="HypercPrivacy" runat="server" NavigateUrl="#">
+                     Privacy Policy</asp:HyperLink>
+                                </td>
+                                <td>
+                                    <asp:HyperLink ID="HypercDownloads" runat="server" NavigateUrl="#">
+                     Downloads</asp:HyperLink>
+                                </td>
+                                <td>
+                                    <asp:HyperLink ID="HypercAchievement" runat="server" NavigateUrl="#">
+                     Achievement </asp:HyperLink>
+                                </td>
+                                <td>
+                                    <asp:HyperLink ID="HypercFacilities" runat="server" NavigateUrl="#">
+                     Facilities</asp:HyperLink>
+                                </td>
+                                <td>
+                                    <asp:HyperLink ID="HypercAffiliations" runat="server" NavigateUrl="#">
+                     Affiliations</asp:HyperLink>
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
+                </div>
+                <div id="divfooterteacher" runat="server" visible="false">
+                    <center>
+                        <table cellpadding="0" cellspacing="0" width="60%">
+                            <tr>
+                                <td>
+                                    <asp:HyperLink ID="HypertTerms" runat="server" NavigateUrl="#">
+                     Terms & Condition </asp:HyperLink>
+                                </td>
+                                <td>
+                                    <asp:HyperLink ID="HypertPrivacy" runat="server" NavigateUrl="#">
+                     Privacy Policy</asp:HyperLink>
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
+                </div>
+                <div id="divfooterprofessional" runat="server" visible="false">
+                    <center>
+                        <table cellpadding="0" cellspacing="0" width="60%">
+                            <tr>
+                                <td>
+                                    <asp:HyperLink ID="HyperpTerms" runat="server" NavigateUrl="#">
+                     Terms & Condition </asp:HyperLink>
+                                </td>
+                                <td>
+                                    <asp:HyperLink ID="HyperpPrivacy" runat="server" NavigateUrl="#">
+                     Privacy Policy</asp:HyperLink>
+                                </td>
+                                <td>
+                                    <asp:HyperLink ID="HyperpDownloads" runat="server" NavigateUrl="#">
+                     Downloads</asp:HyperLink>
+                                </td>
+                                <td>
+                                    <asp:HyperLink ID="HyperpAchievement" runat="server" NavigateUrl="#">
+                     Achievement </asp:HyperLink>
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
+                </div>
+                <br />
+                &copy; All Rights Reserved.<br />
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+<script type="text/javascript">
+    $(function () {
+        $('#navigation a').stop().animate({ 'marginLeft': '-100px' }, 1000);
+
+        $('#navigation > li').hover(
+                    function () {
+                        $('a', $(this)).stop().animate({ 'marginLeft': '0px' }, 200);
+                    },
+                    function () {
+                        $('a', $(this)).stop().animate({ 'marginLeft': '-100px' }, 200);
+                    }
+                );
+    });
+</script>
+</html>

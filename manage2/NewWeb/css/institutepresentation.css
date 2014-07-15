@@ -1,0 +1,260 @@
+.container{
+	margin:auto;
+	width:1000px;
+}
+
+.content{
+	width:1278px;
+	margin:0 auto;
+	border-radius:10px;
+    -webkit-border-radius:10px;
+    -webkit-border-radius:10px;
+	box-shadow: 1px 5px 5px;
+	
+}
+
+.header{
+	
+	width:1000px;
+}
+
+.clear{
+	clear:both;
+}
+
+.subcontent1{
+	margin:10px;
+	float:left;
+	min-height:200px;
+	width:740px;
+	background:#fff;
+	padding-left:10px;
+}
+
+.subcontent2{
+	margin:10px;
+	float:left;
+	min-height:200px;
+	width:740px;
+	background:#fff;
+	padding-left:10px;
+}
+
+.box1{
+	margin:10px;
+	float:right;
+	width:200px;
+	height:200px;
+	background:#fff;
+}
+.box1 h3{
+	color:#FFF;
+	background:#C90;
+	padding-left:5px;
+}
+.box2{
+	margin:10px;
+	width:200px;
+	height:200px;
+	float:right;
+	background:#fff;
+}
+
+.box2 h3{
+	color:#FFF;
+	background:#390;
+	padding-left:5px;
+}
+
+.widesubcontent{
+	margin:10px;
+	float:left;
+	background:#fff;
+	width:970px;
+	min-height:200px;
+	padding-left:10px
+	
+}
+
+.rightbox{
+	background:#DDD;
+	float:right;
+	height:180px;
+	margin:10px;
+	width:180px;
+}
+.rightbox img{
+	height:180px;
+	width:180px;
+}
+.leftbox img{
+	height:180px;
+	width:180px;
+}
+.leftbox{
+	background:#DDD;
+	float:left;
+	height:180px;
+	margin:10px;
+	width:180px;
+}
+
+.leftimgbox{
+	background:#DDD;
+	float:left;
+	height:180px;
+	margin:5px;
+	width:180px;
+}
+
+.leftgalleryimgbox{
+	background:#DDD;
+	float:left;
+	height:180px;
+	margin:5px;
+	width:180px;
+	box-shadow: 1px 5px 5px;
+}
+.more{
+	color:#fff !important;
+	font-weight:bold;
+	font-size:14px;
+	width:50px;
+	padding:5px;
+	background:#069;
+	float:right;
+	margin-right:10px;
+	margin-bottom:10px;
+	text-align:center;
+}
+.more a{ color:#FFF;}
+.more:hover{
+	background-color:#099;
+	box-shadow:#DDD 1px 1px 1px;
+}
+
+.footer{
+	text-align:center;
+	font-size:12px;}
+/***************************************************************menu bar*********************************************************/
+#nav {
+	width:970px;
+	margin: 0;
+ float:right;margin:0;padding:0;list-style-type:none;
+}
+#nav li {
+	float:left;color:#1355b9;line-height:38px;padding:0 12px;}
+
+
+/* main level link */
+#nav a {
+	color: #555;
+	text-decoration: none;
+	display: block;}
+#nav a:hover {color:#000000;text-decoration:underline;box-shadow:0 1px 0 #333}
+#nav ul li a:hover{color:#000000;text-decoration:underline;box-shadow:0 1px 0 #333}
+
+/* main level link hover */
+#nav .current a, #nav li:hover > a {text-decoration:none;color:#332A31;box-shadow:0 1px 0 #333}
+hover a {text-decoration:none;color:#332A31;box-shadow:0 1px 0 #333}
+#nav ul a {font-weight: normal;}
+/* clearfix */
+#nav:after {content: ".";display: block;clear:both;visibility:hidden;line-height:0;height:0;}
+#nav {display:inline-block;} 
+html[xmlns] #nav {
+	display: block;
+}
+ 
+* html #nav {
+	height: 1%;
+}
+/*******************************************menu bar*********************************************************/
+
+        
+ul#navigation {
+    position: fixed;
+    margin: 0 0 0 0px;
+    padding: 0px;
+    top: 140px;
+    left: 0px;
+    list-style: none;
+    z-index:9999;
+}
+ul#navigation li {
+    width: 200px;
+}
+ul#navigation li a {
+	text-decoration:none;
+	color:#444;
+    display: block;
+    margin-left: -20px;
+    width: 200px;
+    height: 60px;    
+    background-repeat:no-repeat;
+    background-position:right;
+    -moz-border-radius:0px 10px 10px 0px;
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -khtml-border-bottom-right-radius: 10px;
+    -khtml-border-top-right-radius: 10px;
+    /*-moz-box-shadow: 0px 4px 3px #000;
+    -webkit-box-shadow: 0px 4px 3px #000;
+    */
+  }
+ul#navigation .home a{
+    background-image: url(../images/home1.png);
+}
+ul#navigation .websitebranding a      {
+    background-image: url(../images/branding.png);
+}
+ul#navigation .instituteerp a      {
+    background-image:url(../images/instituteerp.png);
+}
+ul#navigation .joboffering a      {
+    background-image: url(../images/job.png);
+}
+ul#navigation .admissionportal a   {
+    background-image: url(../images/admissionportal.png);
+}
+ul#navigation .ourstanding a     {
+    background-image: url(../images/understanding.png);
+}
+ul#navigation .lostopportunity a    {
+    background-image: url(../images/lost.png);
+}
+/***************************about********************************/
+.aboutcontent{float:left;width:1000px;text-align:justify;}
+
+.aboutcontent-01{float:left;margin-top:30px;width:1000px;text-align:justify;}
+
+/*******************************gallery****************************/
+.gallerycontent{
+	background:#FFF;
+	padding:20px;
+	float:left;
+	width:950px;
+	min-height:600px;}
+	
+#navis-012 {
+	width:410px;
+margin:0 auto;
+padding:0;list-style-type:none;}
+#navis-012 li {
+	float:left;color:#1355b9;line-height:38px;}
+/* main level link */
+#navis-012 a {color: #555;text-decoration: none;display: block;float:left;padding:0 12px;line-height:38px;}
+#navis-012 a:hover {color:#000000;box-shadow:0 1px 0 #333}
+#navis-012 ul li a:hover{color:#000000;text-decoration:underline;box-shadow:0 1px 0 #333}
+.aboutrightblock-01{
+	padding:10px;
+	float:left;
+	width:200px;
+	min-height:300px;
+	padding:10px;
+	background:#fff;box-shadow:0 1px 3px #666;
+	margin-right:20px;}	
+	
+.footer-innr-sectn{margin:0 auto;width:1242px;overflow:hidden;}	
+.main-right-sectn{float:right;width:221px;}
+.aboutrightblock{box-shadow:0 1px 3px #666;padding:10px;width:200px;min-height:270px;padding:10px;background:#FFF;}
+/*.blk-spce{background:#fff;height:26px;padding:4px;width:100%;box-shadow:0 0 2px #000;}*/

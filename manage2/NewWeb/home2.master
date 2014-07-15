@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/manage2/NewWeb/homemain.master" AutoEventWireup="true"
+    CodeFile="~/manage2/NewWeb/home2.master.cs" Inherits="manage2_NewWeb_home2" %>
+    
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+        <script language="javascript" type="text/javascript">
+            function ddlChkSelect(CtlID) {
+                var ddl = document.getElementById(CtlID);
+                document.getElementById(CtlID).style.visibility = "visible";
+                return true;
+            } 
+        </script>
+    
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+
+    <div class="content">
+        <div class="aboutcontent-01">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <p>
+                    &nbsp;</p>
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="main-right-sectn">
+        <h1 class="container-hdng">Quick Links</h1>
+        <div class="aboutrightblock" style="margin-left:0px;padding:8px 10px 10px;border-left-width:0px;">
+         
+           
+            <asp:Repeater ID="repQuickLinks" runat="server">
+                <ItemTemplate>
+               <ul style="margin:0;padding:5px;margin-left:10px;">
+                <li>
+                        <asp:HyperLink ID="linkchome" runat="server" Text='<%#Eval("name")%>'   NavigateUrl='<%#Eval("link")%>' >
+                        </asp:HyperLink>
+                    </li>
+                   </ul>           
+                </ItemTemplate>
+            </asp:Repeater>
+           
+        </div>
+         </div>
+
+        
+
+    </div>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>

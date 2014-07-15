@@ -1,0 +1,73 @@
+
+body{
+	color:#333;
+	background:url(../teacher/teacher1.jpg) no-repeat fixed top center;
+	font-family: 'Monda', sans-serif;
+	font-size:13px;
+}
+.head{
+	color:#fff;
+	
+}
+
+/*******************************************menu bar*********************************************************/
+
+        
+ul#navigation {
+    position: fixed;
+    margin: 0 0 0 -35px;
+    padding: 0px;
+    top: 140px;
+    left: 0px;
+    list-style: none;
+    z-index:9999;
+}
+ul#navigation li {
+    width: 250px;
+}
+ul#navigation li a {
+	text-decoration:none;
+	color:#444;
+    display: block;
+    margin-left: -20px;
+    width: 220px;
+    height: 40px;    
+    background-color:#FFFEEE;
+    background-repeat:no-repeat;
+    background-position:right;
+    border:1px solid #AFAFAF;
+    -moz-border-radius:0px 10px 10px 0px;
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -khtml-border-bottom-right-radius: 10px;
+    -khtml-border-top-right-radius: 10px;
+    /*-moz-box-shadow: 0px 4px 3px #000;
+    -webkit-box-shadow: 0px 4px 3px #000;
+    */
+  }
+ul#navigation .home a{
+    background-image: url(../images/home.png);
+}
+ul#navigation .about a      {
+    background-image: url(../images/about.png);
+}
+ul#navigation .courses a      {
+    background-image: url(../images/course.png);
+}
+ul#navigation .academicmodule a      {
+    background-image: url(../images/academicmodule.png);
+}
+ul#navigation .achievement a      {
+    background-image: url(../images/achievements.png);
+}
+ul#navigation .activities a      {
+    background-image: url(../images/activities.png);
+}
+ul#navigation .gallery a     {
+    background-image: url(../images/gallery.png);
+}
+ul#navigation .contact a    {
+    background-image: url(../images/contact.png);
+}
+
+/**************************about page************************/
