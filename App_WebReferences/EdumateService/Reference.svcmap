@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8b245bbd-45ed-45d7-8033-e83e06763039" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:53544/EdumateService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="EdumateService.disco" MetadataType="Disco" ID="1cb6049d-f4cb-4360-9807-36f69a797c11" SourceId="1" SourceUrl="http://localhost:53544/EdumateService.svc?disco" />
+    <MetadataFile FileName="EdumateService3.xsd" MetadataType="Schema" ID="b64a216a-5b84-4e6d-9f37-7edfaa4a7cd5" SourceId="1" SourceUrl="http://localhost:53544/EdumateService.svc?xsd=xsd3" />
+    <MetadataFile FileName="EdumateService1.xsd" MetadataType="Schema" ID="b8dcdc31-f5f7-46e4-8cc0-54c083df4eb5" SourceId="1" SourceUrl="http://localhost:53544/EdumateService.svc?xsd=xsd2" />
+    <MetadataFile FileName="EdumateService.xsd" MetadataType="Schema" ID="efa8058b-23d8-439f-8876-6de366ef4ef0" SourceId="1" SourceUrl="http://localhost:53544/EdumateService.svc?xsd=xsd1" />
+    <MetadataFile FileName="EdumateService2.xsd" MetadataType="Schema" ID="5520c97f-49d1-4f49-b4af-af4a8164f1a4" SourceId="1" SourceUrl="http://localhost:53544/EdumateService.svc?xsd=xsd0" />
+    <MetadataFile FileName="EdumateService.wsdl" MetadataType="Wsdl" ID="671a0f51-ed79-4972-87b1-ac71c1539470" SourceId="1" SourceUrl="http://localhost:53544/EdumateService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

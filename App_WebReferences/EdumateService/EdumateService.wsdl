@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="EdumateService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:53544/EdumateService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:53544/EdumateService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:53544/EdumateService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EdumateClassLibrary" />
+      <xsd:import schemaLocation="http://localhost:53544/EdumateService.svc?xsd=xsd3" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEdumateService_InsertCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_InsertCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_GetAllCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_GetAllCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_DeleteCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_DeleteCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_UpdateCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_UpdateCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateExecuteScalar_InputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateExecuteScalar" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateExecuteScalar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateExecuteScalarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateExecuteScalarPara_InputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateExecuteScalarPara" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateExecuteScalarPara_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateExecuteScalarParaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateExecuteScalarSP_InputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateExecuteScalarSP" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateExecuteScalarSP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateExecuteScalarSPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateExecuteNonQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateExecuteNonQuery" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateExecuteNonQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateExecuteNonQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateExecuteNonQueryPara_InputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateExecuteNonQueryPara" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateExecuteNonQueryPara_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateExecuteNonQueryParaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateExecuteNonQuerySP_InputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateExecuteNonQuerySP" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateExecuteNonQuerySP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateExecuteNonQuerySPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateGetDataSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateGetDataSet" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateGetDataSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateGetDataSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateGetDataSetPara_InputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateGetDataSetPara" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateGetDataSetPara_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateGetDataSetParaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateGetDataSetSP_InputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateGetDataSetSP" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateGetDataSetSP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateGetDataSetSPResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateGetDataTable_InputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateGetDataTable" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateGetDataTable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateGetDataTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateGetDataTablePara_InputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateGetDataTablePara" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateGetDataTablePara_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateGetDataTableParaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateGetDataTableSP_InputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateGetDataTableSP" />
+  </wsdl:message>
+  <wsdl:message name="IEdumateService_EdumateGetDataTableSP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EdumateGetDataTableSPResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IEdumateService">
+    <wsdl:operation name="InsertCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEdumateService/InsertCustomer" message="tns:IEdumateService_InsertCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEdumateService/InsertCustomerResponse" message="tns:IEdumateService_InsertCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEdumateService/GetAllCustomer" message="tns:IEdumateService_GetAllCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEdumateService/GetAllCustomerResponse" message="tns:IEdumateService_GetAllCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEdumateService/DeleteCustomer" message="tns:IEdumateService_DeleteCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEdumateService/DeleteCustomerResponse" message="tns:IEdumateService_DeleteCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEdumateService/UpdateCustomer" message="tns:IEdumateService_UpdateCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEdumateService/UpdateCustomerResponse" message="tns:IEdumateService_UpdateCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EdumateExecuteScalar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEdumateService/EdumateExecuteScalar" message="tns:IEdumateService_EdumateExecuteScalar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEdumateService/EdumateExecuteScalarResponse" message="tns:IEdumateService_EdumateExecuteScalar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EdumateExecuteScalarPara">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEdumateService/EdumateExecuteScalarPara" message="tns:IEdumateService_EdumateExecuteScalarPara_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEdumateService/EdumateExecuteScalarParaResponse" message="tns:IEdumateService_EdumateExecuteScalarPara_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EdumateExecuteScalarSP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEdumateService/EdumateExecuteScalarSP" message="tns:IEdumateService_EdumateExecuteScalarSP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEdumateService/EdumateExecuteScalarSPResponse" message="tns:IEdumateService_EdumateExecuteScalarSP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EdumateExecuteNonQuery">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEdumateService/EdumateExecuteNonQuery" message="tns:IEdumateService_EdumateExecuteNonQuery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEdumateService/EdumateExecuteNonQueryResponse" message="tns:IEdumateService_EdumateExecuteNonQuery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EdumateExecuteNonQueryPara">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEdumateService/EdumateExecuteNonQueryPara" message="tns:IEdumateService_EdumateExecuteNonQueryPara_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEdumateService/EdumateExecuteNonQueryParaResponse" message="tns:IEdumateService_EdumateExecuteNonQueryPara_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EdumateExecuteNonQuerySP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEdumateService/EdumateExecuteNonQuerySP" message="tns:IEdumateService_EdumateExecuteNonQuerySP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEdumateService/EdumateExecuteNonQuerySPResponse" message="tns:IEdumateService_EdumateExecuteNonQuerySP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EdumateGetDataSet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEdumateService/EdumateGetDataSet" message="tns:IEdumateService_EdumateGetDataSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEdumateService/EdumateGetDataSetResponse" message="tns:IEdumateService_EdumateGetDataSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EdumateGetDataSetPara">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEdumateService/EdumateGetDataSetPara" message="tns:IEdumateService_EdumateGetDataSetPara_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEdumateService/EdumateGetDataSetParaResponse" message="tns:IEdumateService_EdumateGetDataSetPara_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EdumateGetDataSetSP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEdumateService/EdumateGetDataSetSP" message="tns:IEdumateService_EdumateGetDataSetSP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEdumateService/EdumateGetDataSetSPResponse" message="tns:IEdumateService_EdumateGetDataSetSP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EdumateGetDataTable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEdumateService/EdumateGetDataTable" message="tns:IEdumateService_EdumateGetDataTable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEdumateService/EdumateGetDataTableResponse" message="tns:IEdumateService_EdumateGetDataTable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EdumateGetDataTablePara">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEdumateService/EdumateGetDataTablePara" message="tns:IEdumateService_EdumateGetDataTablePara_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEdumateService/EdumateGetDataTableParaResponse" message="tns:IEdumateService_EdumateGetDataTablePara_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EdumateGetDataTableSP">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEdumateService/EdumateGetDataTableSP" message="tns:IEdumateService_EdumateGetDataTableSP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEdumateService/EdumateGetDataTableSPResponse" message="tns:IEdumateService_EdumateGetDataTableSP_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEdumateService" type="tns:IEdumateService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertCustomer">
+      <soap:operation soapAction="http://tempuri.org/IEdumateService/InsertCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCustomer">
+      <soap:operation soapAction="http://tempuri.org/IEdumateService/GetAllCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <soap:operation soapAction="http://tempuri.org/IEdumateService/DeleteCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <soap:operation soapAction="http://tempuri.org/IEdumateService/UpdateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EdumateExecuteScalar">
+      <soap:operation soapAction="http://tempuri.org/IEdumateService/EdumateExecuteScalar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EdumateExecuteScalarPara">
+      <soap:operation soapAction="http://tempuri.org/IEdumateService/EdumateExecuteScalarPara" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EdumateExecuteScalarSP">
+      <soap:operation soapAction="http://tempuri.org/IEdumateService/EdumateExecuteScalarSP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EdumateExecuteNonQuery">
+      <soap:operation soapAction="http://tempuri.org/IEdumateService/EdumateExecuteNonQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EdumateExecuteNonQueryPara">
+      <soap:operation soapAction="http://tempuri.org/IEdumateService/EdumateExecuteNonQueryPara" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EdumateExecuteNonQuerySP">
+      <soap:operation soapAction="http://tempuri.org/IEdumateService/EdumateExecuteNonQuerySP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EdumateGetDataSet">
+      <soap:operation soapAction="http://tempuri.org/IEdumateService/EdumateGetDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EdumateGetDataSetPara">
+      <soap:operation soapAction="http://tempuri.org/IEdumateService/EdumateGetDataSetPara" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EdumateGetDataSetSP">
+      <soap:operation soapAction="http://tempuri.org/IEdumateService/EdumateGetDataSetSP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EdumateGetDataTable">
+      <soap:operation soapAction="http://tempuri.org/IEdumateService/EdumateGetDataTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EdumateGetDataTablePara">
+      <soap:operation soapAction="http://tempuri.org/IEdumateService/EdumateGetDataTablePara" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EdumateGetDataTableSP">
+      <soap:operation soapAction="http://tempuri.org/IEdumateService/EdumateGetDataTableSP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EdumateService">
+    <wsdl:port name="BasicHttpBinding_IEdumateService" binding="tns:BasicHttpBinding_IEdumateService">
+      <soap:address location="http://localhost:53544/EdumateService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

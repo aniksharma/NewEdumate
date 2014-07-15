@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EdumateClassLibrary" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EdumateClassLibrary" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Customer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerID" type="xs:int" />
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Customer" nillable="true" type="tns:Customer" />
+  <xs:complexType name="ArrayOfCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Customer" nillable="true" type="tns:Customer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomer" nillable="true" type="tns:ArrayOfCustomer" />
+  <xs:complexType name="ArrayOfDbPara">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DbPara" nillable="true" type="tns:DbPara" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDbPara" nillable="true" type="tns:ArrayOfDbPara" />
+  <xs:complexType name="DbPara">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ParaName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParaValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DbPara" nillable="true" type="tns:DbPara" />
+  <xs:complexType name="ArrayOflistReturns">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="listReturns" nillable="true" type="tns:listReturns" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOflistReturns" nillable="true" type="tns:ArrayOflistReturns" />
+  <xs:complexType name="listReturns">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ColName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ColValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="listReturns" nillable="true" type="tns:listReturns" />
+</xs:schema>
