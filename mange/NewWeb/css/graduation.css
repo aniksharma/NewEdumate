@@ -1,0 +1,240 @@
+
+body{
+	color:#333;
+	background:url(../images/grad.png) #000 no-repeat top right;
+	font-family: 'Monda', sans-serif;
+	
+}
+a{
+	text-decoration:none;
+}
+
+h1{
+	color:#fff;
+	float:right;
+	font-size:40px;
+	margin-right:20px;
+	margin-top:100px;
+}
+
+.container{
+	margin:auto;
+	width:1000px;
+}
+
+.content{
+	width:1000px;
+	border-radius:10px;
+    -webkit-border-radius:10px;
+    -webkit-border-radius:10px;
+	box-shadow: 1px 5px 5px;
+	
+}
+
+.header{
+	height:200px;
+	width:1000px;
+}
+
+.clear{
+	clear:both;
+}
+
+.subcontent1{
+	margin:10px;
+	float:left;
+	min-height:200px;
+	width:740px;
+	background:#fff;
+	padding-left:10px;
+}
+
+.subcontent2{
+	margin:10px;
+	float:left;
+	min-height:200px;
+	width:740px;
+	background:#fff;
+	padding-left:10px;
+}
+
+.box1{
+	margin:10px;
+	float:right;
+	width:200px;
+	height:200px;
+	background:#fff;
+}
+.box1 h3{
+	color:#FFF;
+	background:#C90;
+}
+.box2{
+	margin:10px;
+	width:200px;
+	height:200px;
+	float:right;
+	background:#fff;
+}
+
+.box2 h3{
+	color:#FFF;
+	background:#390;
+}
+
+.widesubcontent{
+	margin:10px;
+	float:left;
+	background:#fff;
+	width:970px;
+	min-height:200px;
+	padding-left:10px
+	
+}
+
+.rightbox{
+	background:#DDD;
+	float:right;
+	height:180px;
+	margin:10px;
+	width:180px;
+}
+.rightbox img{
+	height:180px;
+	width:180px;
+}
+.leftbox img{
+	height:180px;
+	width:180px;
+}
+.leftbox{
+	background:#DDD;
+	float:left;
+	height:180px;
+	margin:10px;
+	width:180px;
+}
+
+.leftimgbox{
+	background:#DDD;
+	float:left;
+	height:180px;
+	margin:5px;
+	width:180px;
+}
+
+.leftgalleryimgbox{
+	background:#DDD;
+	float:left;
+	height:180px;
+	margin:5px;
+	width:180px;
+	box-shadow: 1px 5px 5px;
+}
+.more{
+	color:#fff !important;
+	font-weight:bold;
+	font-size:14px;
+	width:50px;
+	padding:5px;
+	background:#069;
+	float:right;
+	margin-right:10px;
+	margin-bottom:10px;
+	text-align:center;
+}
+.more a{ color:#FFF;}
+.more:hover{
+	background-color:#099;
+	box-shadow:#DDD 1px 1px 1px;
+}
+
+.footer{
+	text-align:center;
+	margin:10px;
+	padding:5px;
+	width:950px;
+}
+/*******************************************menu bar*********************************************************/
+
+        
+ul#navigation {
+    position: fixed;
+    margin: 0 0 0 -35px;
+    padding: 0px;
+    top: 140px;
+    left: 0px;
+    list-style: none;
+    z-index:9999;
+}
+ul#navigation li {
+    width: 250px;
+}
+ul#navigation li a {
+	text-decoration:none;
+	color:#444;
+    display: block;
+    margin-left: -20px;
+    width: 250px;
+    height: 60px;    
+    background-color:#fffEEE;
+    background-repeat:no-repeat;
+    background-position:right;
+    border:1px solid #AFAFAF;
+    -moz-border-radius:0px 10px 10px 0px;
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -khtml-border-bottom-right-radius: 10px;
+    -khtml-border-top-right-radius: 10px;
+    /*-moz-box-shadow: 0px 4px 3px #000;
+    -webkit-box-shadow: 0px 4px 3px #000;
+    */
+  }
+ul#navigation .home a{
+    background-image: url(../images/home.png);
+}
+ul#navigation .about a      {
+    background-image: url(../images/about.png);
+}
+ul#navigation .experience a      {
+    background-image: url(../images/experience.png);
+}
+ul#navigation .achievements a      {
+    background-image: url(../images/achievements.png);
+}
+ul#navigation .activities a   {
+    background-image: url(../images/activities.png);
+}
+ul#navigation .gallery a     {
+    background-image: url(../images/gallery.png);
+}
+ul#navigation .contact a    {
+    background-image: url(../images/contact.png);
+}
+/***************************about********************************/
+.aboutrightblock{
+	padding:10px;
+	float:right;
+	width:200px;
+	min-height:300px;
+	padding:10px;
+	background:#FFF;
+	margin-right:20px;
+}
+
+.aboutcontent{
+	background:#FFF;
+	padding:20px;
+	float:left;
+	width:700px;
+	text-align:justify;
+}
+
+/*******************************gallery****************************/
+.gallerycontent{
+	background:#FFF;
+	padding:20px;
+	float:left;
+	width:950px;
+	min-height:600px;
+}

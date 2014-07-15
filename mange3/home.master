@@ -1,0 +1,112 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="home.master.cs" Inherits="mange3_home" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Home</title>
+    <link rel="stylesheet" href="~/mange3/css/style.css" type="text/css" />
+        <link id ="linkid" runat ="server"  href ="~/mange3/css/30.css"/>
+        <link href="~/manage2/newweb/css/institutepresentation.css" rel="stylesheet" type="text/css" />
+    <link id="Link1" runat="server" rel="stylesheet" href="~/css/teacher3.css" type="text/css" charset="utf-8" />
+ 
+    <link href="~/manage2/newweb/css/micro-webstyle.css" rel="stylesheet" type="text/css" />
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID ="ScriptManager1" runat ="server"></asp:ScriptManager>
+    <div>
+    <div class="header-top-002">
+     
+           <div class="header-top-01-innr">
+                       <div id='navis-012'>
+                       <asp:HyperLink ID="linkHome" runat="server" NavigateUrl="#" title='home'>
+                        <div class="homeactive">
+                            Home</div>
+                    </asp:HyperLink>
+                        <asp:HyperLink ID="linkabout" runat="server" NavigateUrl="#" title='home'>
+                      <div class="about">
+                            About</div>
+                    </asp:HyperLink>
+                    
+                     
+                  
+                    <asp:HyperLink ID="linkcreativity" runat="server" NavigateUrl="#" title='creativity'>
+                         <div class="creativity">
+                            My Creativity</div>
+                    </asp:HyperLink>
+                    <asp:HyperLink ID="linkvideo" runat="server" NavigateUrl="#" title='home'>
+                         <div class="video">
+                            Videos</div>
+                    </asp:HyperLink>
+                    <asp:HyperLink ID="linkgallery" runat="server" NavigateUrl="#" title='home'>
+                       <div class="gallery">
+                            Gallery</div>
+                    </asp:HyperLink>
+                     <asp:HyperLink ID="linkcontact" runat="server" NavigateUrl="#" title='contact'>
+                        <div class="contact">
+                            Contact</div>
+                    </asp:HyperLink>
+                </div>
+                </div></div>
+        <div class="container" style="width: 1000px; margin-left: 32px;">
+            <!--------------------------------------------------------Header--------------------------------------------------------------->
+          
+            <div class="header">
+                <img src="images/header.png" id="imglogo"  alt="" height="100" width="250" runat="server" />
+                  
+            </div>
+            <!--------------------------------------------------------Header end--------------------------------------------------------------->
+            <div style="clear: both;">
+            </div>
+            <div style="clear: both;">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <!-------------------------------------------------------------footer-------------------------------------------------------------->
+            <div class="footer" style="padding-left:300px">
+
+            <table >
+            <tr>
+            <td style="padding-left:20px">
+              <asp:HyperLink ID="linkfooterHome" runat="server" NavigateUrl="#" title='home'>
+                        
+                      Home  
+                </asp:HyperLink>
+            </td>
+            <td style="padding-left:20px">
+               <asp:HyperLink ID="linkfooterAbout" runat="server" NavigateUrl="#" title='home'>
+                      About  
+                        
+                </asp:HyperLink>
+            </td>
+            <td style="padding-left:20px">
+               <asp:HyperLink ID="linkfooterGallery" runat="server" NavigateUrl="#" title='home'>
+                        Gallery
+                        
+                </asp:HyperLink>
+            </td>
+            
+            <td style="padding-left:20px">
+              <asp:HyperLink ID="linkfooterContact" runat="server" NavigateUrl="#" title='home'>
+                        Contact
+                        
+                </asp:HyperLink>
+            </td>
+            </tr>
+            </table>
+              
+          
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              
+          
+                &copy;2013. All Rights Reserved.
+            </div>
+            <!-------------------------------------------------------------footer end---------------------------------------------------------->
+        </div>
+    </div>
+    </form>
+</body>
+</html>

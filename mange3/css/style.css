@@ -1,0 +1,182 @@
+@charset "utf-8";
+/* CSS Document */
+.container{
+	margin:auto;
+	width:1000px;
+}
+
+/**********************************************header and menu bar**************************************************************/
+.header{
+	width:1000px;
+}
+
+
+/*************************************************************Image****************************************************************/
+
+.imagecontent{
+	width:1000px;
+	height:300px;
+	background-color:#FFFFFF;
+	-moz-box-shadow: 0px 5px 10px #000;
+	-webkit-box-shadow: 0px 5px 10px #000;
+	box-shadow: 0px 5px 10px #000;
+	/**************************** For IE 8 ***************************/
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#000000')";
+	/**************************** For IE 5.5 - 7 *********************/
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#000000');
+}
+/***************************************************************data content************************************************************/
+.datacontent{
+	width:1000px;
+	background:#FFFFFF;
+}
+.useimg{
+	box-shadow:none !important;
+	margin:0px;
+}
+.redbox{
+	width:250px;
+	height:140px;
+	background:#f53336;
+	float:left;
+	margin-top:20px;
+	margin-left:50px;
+	color:#FFFFFF;
+	padding:10px;
+	font-size:1.2em !important;
+	text-align:justify;
+}
+.yellowbox{
+	width:250px;
+	height:140px;
+	background:#fdb000;
+	float:left;
+	margin-top:20px;
+	margin-left:50px;
+	color:#FFFFFF;
+	padding:10px;
+	font-size:1.2em !important;
+	text-align:justify;
+}
+.greenbox{
+	width:250px;
+	height:140px;
+	background:#a0c90b;
+	float:left;
+	margin-top:20px;
+	margin-left:50px;
+	color:#FFFFFF;
+	padding:10px;
+	font-size:1.2em !important;
+	text-align:justify;
+}
+
+.subcontent{
+	text-align:justify;
+	width:950px;
+	min-height:200px;
+	color:#444444;
+	padding:20px;
+}
+/***********************************************************Gallery************************************************************************/
+.galcontent{
+	width:1000px;
+	background:#FFFFFF;
+}
+.galcategory{
+	float:left;
+	padding:3px;
+	margin-top:10px;
+	margin-top:10px;
+	margin-left:13px;
+	margin-right:13px;
+}
+.galcategory img{
+	border:solid 2px #FFFFFF;
+	background-color:#FFFFFF;
+	-moz-box-shadow: 0px 5px 10px #000;
+	-webkit-box-shadow: 0px 5px 10px #000;
+	box-shadow: 0px 5px 10px #000;
+	/**************************** For IE 8 ***************************/
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#000000')";
+	/**************************** For IE 5.5 - 7 *********************/
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#000000');
+}
+/*******************************************************************sub gallery**********************************************************/
+.maingalleryimage{
+	background-color:#CCC;
+	padding:2px;
+	height:330px;
+	width:550px;
+	float:left;
+	margin:5px;
+}
+
+.subgalleryimage
+{
+	background-color:#CCC;
+	padding:2px;
+	height:155px;
+	width:175px;
+	float:left;
+	margin:5px;
+}
+
+/***********************************************************Adress Book Page**************************************************************/
+
+.addbook{
+	margin:25px;
+	width:900px;
+	height:150px;
+}
+.addbookimg{
+	float:left;
+	height:170px;
+	width:155px;
+	margin:10px;
+	background:#EEE;
+	
+}
+.addbookdata{
+	float:left;
+}
+
+/**********************************************************contact************************************************************************/ 
+.contactcontent{
+	width:1000px;
+	background:#FFFFFF;
+}
+
+.contactform{
+	float:left;
+	width:450px;
+	margin-left:50px;
+	padding:20px;
+}
+ 
+input{
+	width:300px;
+	height:30px;
+}
+textarea{
+	width:300px;
+	min-height:200px;
+}
+
+/**********************************************************videos page*********************************************************************/
+.videos{
+	float:left;
+	padding:3px;
+	margin-top:10px;
+	margin-top:10px;
+	margin-left:13px;
+	margin-right:13px;
+}
+/***********************************************************Footer*************************************************************************/
+
+.footer{
+	text-align:center;
+	margin-top:10px;
+	color:#777;
+	font-size:0.8em;
+}
