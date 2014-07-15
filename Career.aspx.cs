@@ -22,10 +22,11 @@ public partial class Career : System.Web.UI.Page
     protected int TotalCount1;
     SqlDataAdapter da;
     int contid;
-    protected DataSet ds = new DataSet();
+    protected DataSet ds;
     protected DataSet ds1 = new DataSet();
     protected DataSet ds2 = new DataSet();
     string NewsId = "";
+    EdumateService.EdumateServiceClient proxy;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack == true)
@@ -49,7 +50,7 @@ public partial class Career : System.Web.UI.Page
         SqlConnection con = new SqlConnection(strcon);
         SqlCommand cmd = new SqlCommand("viewNews_TitleSelectedCareer", con);
         cmd.CommandType = CommandType.StoredProcedure;
-        SqlParameter[] paramsToStore =new SqlParameter[4];
+        SqlParameter[] paramsToStore = new SqlParameter[4];
         paramsToStore[0] = new SqlParameter("@pageSize", SqlDbType.NVarChar);
         paramsToStore[0].Size = 20;
         cmd.Parameters.Add(paramsToStore[0]).Value = "10";
@@ -66,6 +67,7 @@ public partial class Career : System.Web.UI.Page
 
 
         SqlDataAdapter da = new SqlDataAdapter(cmd);
+        ds = new DataSet();
         da.Fill(ds);
 
 
@@ -118,22 +120,27 @@ public partial class Career : System.Web.UI.Page
     }
     public void BindCountry()
     {
+        proxy = new EdumateService.EdumateServiceClient();
+        string msg, msg1;
 
-        SqlConnection con = new SqlConnection(strcon);
-        SqlCommand cmd = new SqlCommand("TitleCareerList", con);
-        cmd.CommandType = CommandType.StoredProcedure;
-        SqlParameter[] paramsToStore =
-           new SqlParameter[4];
-        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        da.Fill(ds2);
-        ddl.DataSource = ds2;
+        EdumateService.DbPara[] arrObj = new EdumateService.DbPara[0];
 
+        //da.Fill(ds);
+        ds = new DataSet();
+        ds = proxy.EdumateGetDataSetSP(out msg, out msg1, arrObj, "TitleCareerList");
+
+
+        //SqlConnection con = new SqlConnection(strcon);
+        //SqlCommand cmd = new SqlCommand("TitleCareerList", con);
+        //cmd.CommandType = CommandType.StoredProcedure;
+        //SqlParameter[] paramsToStore =
+        //   new SqlParameter[4];
+        //SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //da.Fill(ds2);
+        ddl.DataSource = ds;
         ddl.DataValueField = "newsTypeID";
         ddl.DataTextField = "newsType";
-
-
         ddl.DataBind();
-
 
     }
     protected void ddl_SelectedIndexChanged(object sender, EventArgs e)

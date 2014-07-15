@@ -13,10 +13,10 @@ using st;
 
 public partial class UserControl_MainControl : System.Web.UI.UserControl
 {
-    clsBLSetup obj;
-    PRPSetup objprp, objparm;
-    static string Id = "";
-    string strcon = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
+    //clsBLSetup obj;
+    //PRPSetup objprp, objparm;
+    //static string Id = "";
+    //string strcon = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
     DataSet ds = new DataSet();
     string name = "";
     string UniNames = "";
