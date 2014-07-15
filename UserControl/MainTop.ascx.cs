@@ -28,6 +28,7 @@ public partial class UserControl_MainTop : System.Web.UI.UserControl
         }
         if (!IsPostBack == true)
         {
+            BindCountry();
         }
     }
 
