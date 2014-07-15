@@ -1,0 +1,33 @@
+select * from Adminmaster
+
+
+Select Rech_Amt,Tr_Status,Owner from Kskmaster where kskname ='MP120078'
+select * from MemberMaster WHERE KSKCODE='1892'
+
+
+select * from MemberMaster WHERE First_Name='Ranjan'
+
+
+Select ksk.Rech_Amt,ksk.Tr_Status,ksk.Owner,meb.img from 
+Kskmaster ksk, MemberMaster meb
+where ksk.KSKNAME ='MP120078' and ksk.KSKCODE=meb.KSKCODE and meb.M_Code='1012499'
+
+select Rech_Amt from kskmaster where kskcode=1892
+select * from emailmaster where email='1012499' and epassword='1012499'
+
+select * from Kskmaster where KSKNAME='MP120078'
+Select * from MemberMaster where M_Code='1012499'
+select Rech_Amt from kskmaster where kskcode='1892'
+select * from emailmaster where email='1012501' and epassword='1012501'\
+
+
+Select * from EmailMaster
+
+
+update emailmaster set amount='10000' where M_Code='1012501'
+
+update Kskmaster set Amount='500000' , Rech_Amt='500000' where  KSKNAME='MP120078'
+
+
+
+kalektebiliya.kom
