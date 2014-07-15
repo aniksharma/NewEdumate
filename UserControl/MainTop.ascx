@@ -6,7 +6,7 @@
             <div class="logo-sectn">
                 <img src="images/logo.png" class="img-prfil" alt="Edumate"></div>
             <div class="country-sectn">
-                <asp:DropDownList ID="ddlcountry" runat="server" class="slct-fld" AutoPostBack="True" OnSelectedIndexChanged="ddlcountry_SelectedIndexChanged"></asp:DropDownList>
+                <asp:DropDownList ID="ddlcountry" runat="server" class="slct-fld"></asp:DropDownList>
             </div>
 
             <article class="header-inner-right">
