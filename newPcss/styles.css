@@ -1,0 +1,193 @@
+@charset "utf-8";
+/* CSS Document */
+/*.containerDiv{
+	margin:auto;
+	background-color:#999;
+}
+
+#headerDiv{
+}
+
+/*******************************************************Control Panel**********************************************************************/
+
+#rowimageDiv{
+	padding-top:50px;
+	float:left;
+	padding-left:100px;
+}
+
+#subrowimageDiv{
+	padding-top:30px;
+	float:left;
+	padding-left:100px;
+}
+
+#subrowimageDiv img{
+	padding-left:60px;
+}
+
+#rowimageDiv img{
+	padding-left:100px;
+}
+
+/*******************************************************Registration Details***************************************************************/
+
+#regformDiv{
+	width: 700px;
+	height: 900px;
+	box-shadow: 1px 1px 15px #333; 
+}
+
+#regformDiv h2{ 
+	background-color:#cfe7fd;
+	font-size:18px;
+	color:#484747;
+	padding-left:100px;
+}
+
+#regformDiv form{
+	padding-left:100px;
+	
+}
+
+#regformDiv form input{
+	margin:5px;
+}
+/*******************************************************Log In***************************************************************************/
+
+#loginformDiv{
+	width:400px;
+	height:200px;
+	border-radius:10px;
+	box-shadow:1px 1px 15px #333;
+	padding-top:50px; 
+}
+
+#loginformimageDiv{
+	float:left;
+	width:100px;
+	padding-left:20px;	
+}
+
+#loginform{
+	padding-top:10px;
+	font-weight:bold;
+	float:left;
+	}
+/*	
+#loginform input{
+	border:none;
+	height:35px;
+	width:210px;
+	text-align:left;
+	background-image:url(images/login-input-box.png);
+	background-repeat:no-repeat;
+}
+	*/
+	
+/*******************************************************User Details***************************************************************/
+
+#userdetailsmaleDiv{
+	width:700px;
+	height:350px;
+	box-shadow: 5px 5px 10px #333; 
+	border-radius: 10px;
+
+}
+
+#userdetailsmaleleftimageDiv{
+
+	width:100px;
+	float:left;
+	
+}
+
+#userdetailsmalerightimageDiv{
+	width:100px;
+	float:right;
+	
+}
+
+.userdetailsmaleleftformDiv{
+	font-weight:bold;
+	color:#05559a;
+	padding-top:30px;
+	float:left;
+}
+
+.userdetailsmalerightformDiv{
+	font-weight:bold;
+	color:#05559a;
+	padding-top:30px;
+	float:right;
+	padding-right:10px;
+}
+
+
+.userdetailsmaleleftformDiv input{
+	border:none;
+	height:25px;
+	width:230px;
+	text-align:left;
+	background-image:url(images/male-input-bg.png);
+}
+
+.userdetailsmalerightformDiv input{
+	border:none;
+	height:25px;
+	width:230px;
+	text-align:right;
+	background-image:url(images/male-input-bg.png);
+}
+
+
+#userdetailsfemaleDiv{
+	width:800px;
+	height:350px;
+	box-shadow: 5px 5px 10px #333; 
+	border-radius: 10px;
+}
+
+.userdetailsfemaleleftformDiv{
+	font-weight:bold;
+	color:#b31d39;
+	padding-top:30px;
+	float:left;
+}
+
+.userdetailsfemalerightformDiv{
+	font-weight:bold;
+	color:#b31d39;
+	padding-top:30px;
+	float:right;
+	padding-right:10px;
+}
+
+
+.userdetailsfemaleleftformDiv input{
+	border:none;
+	height:25px;
+	width:230px;
+	text-align:left;
+	background-image:url(images/female-input-bg.png);
+}
+
+.userdetailsfemalerightformDiv input{
+	border:none;
+	height:25px;
+	width:230px;
+	text-align:right;
+	background-image:url(images/female-input-bg.png);
+}
+
+#userdetailsfemaleleftimageDiv{
+	width:100px;
+	float:left;
+	
+}
+
+#userdetailsfemalerightimageDiv{
+	width:100px;
+	float:right;
+	
+}
