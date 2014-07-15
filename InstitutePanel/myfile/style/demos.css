@@ -1,0 +1,96 @@
+body {
+	font-size: 70.5%;
+	font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif";
+}
+
+table {
+	font-size: 1em;
+}
+
+.demo-description {
+	clear: both;
+	padding: 12px;
+	font-size: 1.3em;
+	line-height: 1.4em;
+}
+
+.ui-draggable, .ui-droppable {
+	background-position: top;
+}
+
+
+        input[type="text"], input[type="password"]
+        {
+            border-right: #a9a9a9 1px solid;
+            padding-right: 4px;
+            border-top: #a9a9a9 1px solid;
+            padding-left: 4px;
+            padding-bottom: 4px;
+            border-left: #a9a9a9 1px solid;
+            padding-top: 4px;
+            border-bottom: #a9a9a9 1px solid;
+            width: 210px;
+        }
+        .web_dialog_overlay
+        {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background: #000000;
+            opacity: .15;
+            filter: alpha(opacity=15);
+            -moz-opacity: .15;
+            z-index: 101;
+            display: none;
+        }
+        .web_dialog
+        {
+            display: none;
+            position: fixed;
+            width: auto;
+            height: auto;
+            top: 45%;
+            left: 50%;
+            margin-left: -300px;
+            margin-top: -200px;
+            background-color: #ffffff;
+            border: 2px solid #336699;
+            padding: 0px;
+            z-index: 102;
+            font-family: Verdana;
+            font-size: 10pt;
+        }
+        .web_dialog_title
+        {
+            border-bottom: solid 2px #336699;
+            background-color: #336699;
+            padding: 4px;
+            color: White;
+            font-weight: bold;
+        }
+        .web_dialog_title a
+        {
+            color: White;
+            text-decoration: none;
+        }
+        .align_right
+        {
+            text-align: right;
+        }
+        
+        .tins
+        {
+            width: 100%;
+        }
+        .tins th, .tins td
+        {
+            padding-left: 23px;
+            padding-top: 8px;
+        }
+    

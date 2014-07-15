@@ -1,0 +1,169 @@
+@charset "utf-8";
+/* CSS Document */
+.containerDiv{
+	margin:auto;
+	
+}
+
+#headerDiv{
+}*/
+
+.topmenu{
+	padding-left:200px;
+}
+
+.topmenu img{
+	padding-right:10px;
+}
+.leftsideDiv{
+	float:left;
+	margin-left:50px;
+	width:200px;
+}
+
+.photoDiv{
+	margin:30px;
+	width:150px;
+	height:150px;
+	background-color:#FFF;
+	box-shadow: 1px 5px 5px;
+}
+
+.leftmenuDiv{
+	margin-left:30px;
+}
+
+.admissionbox{
+	
+	width:160px;
+	height:160px;
+	box-shadow: 1px 5px 5px;
+	margin:30px;
+	
+}
+
+.middleDiv{
+	padding-top:50px;
+	margin-left:25px;
+	float:left;
+	width:700px;
+/*	height:800px; */
+}
+
+.iconrowDiv{
+	
+}
+
+.rightsideDiv{
+	margin-left:25px;
+	float:left;
+	width:200px;
+	height:600px;
+}
+
+.analyticbox{
+	
+	width:160px;
+	height:160px;
+	box-shadow: 1px 5px 5px;
+	margin:30px;
+	
+}
+
+.jobsupdateDiv{
+	height:420px;
+}
+/*img:hover
+{
+ box-shadow:#87a9a6 1px 5px 5px;
+} */
+
+.textDiv{
+	font-family: 'Bitter', serif;
+	margin-top:20px;
+	font-size:32px;
+ margin-bottom:20px;
+	color:#666;
+	text-align:center;
+}
+
+/******************************************************************News Page***************************************************************/
+
+.mainnewsDiv{
+	font-family:'Bitter', serif;
+	float:left;
+	width:800px;
+	min-height:600px;
+	margin-left:80px;
+	margin-top:10px;
+	box-shadow:1px 5px 10px;
+	padding:10px;
+	text-align:justify;
+}
+
+.mainnewsDiv p{
+	font-size:14px;
+	line-height:1.4em;	
+}
+
+.mainnewsDiv img:hover{
+	box-shadow:none;
+}
+.mainnewsDiv h2{
+	text-align:center;
+	text-decoration:underline;
+	color:#069;
+}
+.newslinkDiv{
+	list-style-image:url(image/bullet-icon.png);
+	font-size:14px;
+	width:800px;
+	min-height:200px;
+	margin-left:80px;
+	margin-top:25px;
+}
+
+.newsadDiv{
+	float:left;
+	width:180px;
+	min-height:600px;
+	margin-left:20px;
+	margin-top:10px;
+}
+
+/**************************************************************control panel home***************************************/
+.homenewsDiv{
+	width:700px;
+	height:300px;
+	box-shadow:1px 5px 10px;
+}
+.hometestimonial{
+
+	min-height:200px;
+	width:700px;	
+}
+
+
+
+.iconrowDiv{
+ height:140px;
+}
+.iconrowDiv img{
+ margin-bottom:10px;
+}
+.firsticoncontentDiv{
+ float:left;
+ font-size:13px;
+ margin-right:50px;
+ margin-left:20px;
+ color:#444;
+ font-weight:bold;
+}
+.iconcontentDiv{
+ width:130px;
+ font-size:13px;
+ float:left;
+ margin-right:50px;
+ color:#444;
+ font-weight:bold;
+}

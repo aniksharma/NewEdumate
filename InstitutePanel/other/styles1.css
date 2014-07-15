@@ -1,0 +1,99 @@
+@charset "utf-8";
+/* CSS Document */
+body{font-family:Arial, Helvetica, sans-serif;
+
+}
+
+.containerDiv{
+	margin:auto;
+	width:1000px;
+}
+
+
+/******************************************************************Control Panel************************************************************/
+
+
+.middleDiv{
+	padding-top:30px;
+	margin-left:25px;
+	float:left;
+	width:800px;
+	height:800px;
+	background-color:#;
+	padding-left:30px;
+	
+}
+
+
+.iconcontentDiv{
+	width:140px;
+	font-size:13px;
+	float:left;
+	margin-right:20px;
+	margin-bottom:25px;
+	color:#444;
+	font-weight:bold;
+	background:#FFFFFF;
+
+	
+}
+.iconcontentDiv img{
+	-webkit-transition-duration: 0.8s;
+	-moz-transition-duration: 0.8s;
+	-o-transition-duration: 0.8s;
+	transition-duration: 0.8s;
+	-webkit-transition-property: -webkit-transform;
+	-moz-transition-property: -moz-transform;
+	-o-transition-property: -o-transform;
+
+}
+.iconcontentDiv img:hover{
+	-webkit-transform:scale(1.2,1.2);
+    -moz-transform:scale(1.2,1.2);
+    -o-transform:scale(1.2,1.2);
+	-moz-box-shadow: 1px 1px 5px #999;
+	-webkit-box-shadow:1px 1px 5px #999;
+	box-shadow: 1px 1px 5px #999;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=135, Color='#999999')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#999999');
+	
+	}
+.leftsideDiv{
+	margin-left:25px;
+	float:left;
+	width:200px;
+	height:600px;
+}
+
+
+
+.controlpanelcat{
+	width:800px;
+	padding:5px;
+	border: solid 2px #01647d;
+	border-radius:10px;
+	margin-bottom:10px;
+		box-shadow: 3px 3px 5px #222222;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=135, Color='#222222')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#222222');*/
+}
+
+.controlpanelcathead
+{
+	background: #1586c4; /* for non-css3 browsers */
+
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4ad1f7', endColorstr='#023daa'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#4ad1f7), to(#023daa)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #4ad1f7,  #023daa); /* for firefox 3.6+ */
+border-radius:7px;
+float:left; 
+width:760px;
+font-size:18px;
+margin-left:10px;
+padding:5px;
+color:#FFFFFF;
+}

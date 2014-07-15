@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Other.master.cs" Inherits="InstitutePanel_other_Other" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Web Control</title>
+<link href="~/InstitutePanel/other/styles1.css" rel="stylesheet" type="text/css" />
+    <link href="../myfile/cssjs/Grid.css" rel="stylesheet" type="text/css" />
+   
+ <link href="../myfile/cssjs/MoviHr.css" rel="stylesheet" type="text/css" />
+    <link href="../myfile/style/demos.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="background-color:White;">
+    <form id="form1" runat="server">
+    <div>
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+
+    <div class="containerDiv" style="background-color:White;">
+        <img src="~/InstitutePanel/other/head.jpg" />
+        <div class="middleDiv" style="background-color:White;">
+            <div>
+                <img style="float: left; margin-top: -7px;" src="~/InstitutePanel/other/image/left.jpg" />
+                <span style="float: left;">&nbsp;&nbsp;
+                <a href ="~/controlpanel-welcome-User">
+                My Panel</a>
+                
+                </span>
+                <img style="float: right; margin-top: -7px;" src="~/InstitutePanel/other/image/right.jpg" />
+                <span style="float: right;">Go To Website&nbsp;&nbsp;</span>
+            </div>
+            <br />
+            <br />
+
+            <div style ="background:#ffffff">
+                <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+
+            <div style="clear: both;">
+            </div>
+        </div>
+    </div>
+
+    </div>
+    </form>
+</body>
+</html>

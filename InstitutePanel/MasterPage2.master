@@ -1,0 +1,347 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage2.master.cs" Inherits="InstitutePanel_MasterPage2" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
+<%@ Register src="../Institutemenu/adminmenus.ascx" tagname="adminmenus" tagprefix="uc2" %>
+<%@ Register src="~/UserControl/Top.ascx" tagname="header" tagprefix="uc1" %>
+<%@ Register src="~/UserControl/footer.ascx" tagname="footer" tagprefix="uc4" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Edu HUB</title>
+      
+       <%--Css--%>
+
+       <link href="../render/stylesheetedumate.css" rel="stylesheet" type="text/css" /> 
+
+       <%--<------------Deepak Code-------------------------->--%>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $(".productDescription_Candidate_Profile").hide();
+        $(".productDescription_Contact_Details").hide();
+
+
+        $(".show_hide_Description").show();
+        $(".show_hide_Candidate_Profile").show();
+        $(".show_hide_Contact_Details").show();
+
+
+        $('.show_hide_Description').click(function () {
+            $(".productDescription_Description").slideToggle();
+            $(".productDescription_Candidate_Profile").slideToggle();
+
+            return false;
+        });
+
+
+
+        $('.show_hide_Candidate_Profile').click(function () {
+            $(".productDescription_Description").slideToggle();
+            $(".productDescription_Candidate_Profile").slideToggle();
+
+
+            return false;
+        });
+
+        $('.show_hide_Contact_Details').click(function () {
+            $(".productDescription_Contact_Details").slideToggle();
+            $(".productDescription_Candidate_Profile").slideToggle();
+
+
+            return false;
+        });
+
+    });
+ 
+</script>
+ <script language="javascript">
+     function disp_confirm() {
+         var r = confirm("Are you Sure you want to delete")
+         if (r == true) {
+             return true;
+         }
+         else {
+             return false;
+         }
+     }
+        </script>
+<script language="javascript">
+             function Edit_confirm() {
+                 var r = confirm("Are you Sure you want to Update")
+                 if (r == true) {
+                     return true;
+                 }
+                 else {
+                     return false;
+                 }
+             }
+        </script>
+<script language="javascript">
+             function Status_confirm() {
+                 var r = confirm("Are you Sure you want to Enable/Disable")
+                 if (r == true) {
+                     return true;
+                 }
+                 else {
+                     return false;
+                 }
+             }
+        </script>
+        <%--<-------------------/Deepak-------------------->--%>
+ <%-- Change Tab Code--%>
+
+          
+<%--For Testimonial--%>
+   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+   <script src="../jqueryTestimonial/jquery.simplyscroll.js" type="text/javascript"></script>
+  <script language="javascript">/*jQuery time*/
+$(document).ready(function(){
+	$("#accordian h3").click(function(){
+		//slide up all the link lists
+		$("#accordian ul ul").slideUp();
+		//slide down the link list below the h3 clicked - only if its closed
+		if(!$(this).next().is(":visible"))
+		{
+			$(this).next().slideDown();
+		}
+	})
+})</script>  
+   <link href="css/jquery.simplyscroll.css" rel="stylesheet" type="text/css" /> 
+
+ <%--For Live Traffic--%>     
+    <script src="../js/newjs.js" type="text/javascript"></script>   
+   <script language="javascript" type="text/javascript">
+         function disableButtonOnClick(oButton, sButtonText, sCssClass) {
+             oButton.disabled = true;
+    
+             oButton.setAttribute('class', sCssClass);}
+    </script>         
+   <script language="javascript" type="text/javascript">
+       function disableButtonOnClick1(oButton, sButtonText, sCssClass) {
+           oButton.disabled = true;
+           oButton.value = sButtonText;
+           oButton.setAttribute('class', sCssClass);}
+       
+    </script>   
+</head>
+<body>
+<form id="form1" runat="server">
+<asp:ScriptManager ID="ScriptManager1" runat="server">
+</asp:ScriptManager>
+<div id="headerDiv" class="header-inner-fxd-01"> 
+<uc1:header ID="header1" runat="server" />
+<uc2:adminmenus ID="header2" runat ="server" />
+</div>
+<p class="middle-line-03"></p>
+<div>
+<div class="container-left-sectn-03">
+<div class="left-img-blck">
+<div class="img-box"> 
+    <asp:Image ID="imglogo" runat="server" Height="122px" 
+        Width="106px" /> </div>
+<p class="edit"> 
+ <asp:LinkButton ID="LinkButton2" CssClass="iconlink" runat="server" >Edit Image</asp:LinkButton>     
+                                           
+ <cc1:ModalPopupExtender ID="LinkButton2_ModalPopupExtender" runat="server" BackgroundCssClass="backcss" CancelControlID="LinkButton3" 
+     DynamicServicePath="" Enabled="True" PopupControlID="EditImage" TargetControlID="LinkButton2"></cc1:ModalPopupExtender></p>
+    <a href="mywebsite/selectTemplate.aspx">Change Template</a>  
+ 
+<p class="profile-name"><asp:Literal ID="litName" runat="server"></asp:Literal> </p>
+</div>
+<div class="left-sectn-navi">
+<asp:LinkButton ID="LinkButton5" runat="server" Visible ="false" OnClick="LinkButton5_Click" Style="color:Black" > Profile </asp:LinkButton>
+<div id ="College1" runat ="server" visible ="false">
+<ul>
+<li>
+<asp:LinkButton ID="LinkButton1" runat="server" Visible ="false" OnClick="LinkButton1_Click" Style="color:Black" > Profile </asp:LinkButton>
+</li>
+
+
+<%--<li><a href="UpdateTutorProfile.aspx">Profile </a></li>--%>
+<li><asp:Literal ID="litPlacement" runat="server"></asp:Literal></li>
+ 
+
+    <li><a href="../InstitutePanel/List.aspx">Tution Listing</a></li>
+<li><a href="../Academic/CreateFolder.aspx">Acadmic</a></li>  
+ <li><a href="../InstitutePanel/StudentLead.aspx">Students Lead</a></li>  
+<li><a href="#">Students Group</a></li>
+<li><a href="#">More...</a></li>
+<ul>
+<li>Help Desk</li>
+<li><a href="../InstitutePanel/changepaswd.aspx">Change Password</a></li>
+</ul>
+
+
+</ul>
+</div>
+</div>
+
+<div id ="College" runat ="server" visible ="false">
+<ul>
+<li>
+
+<asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton1_Click" Style="color:Black" >College Profile </asp:LinkButton>
+
+</li>
+
+
+<%--<li><a href="UpdateTutorProfile.aspx">Profile </a></li>--%>
+
+    <li><a href="../Institutepanel/List.aspx">Courses Listing</a></li>
+<li><a href="../JobPlacement/JD-Form.aspx">JOb Descriptions</a></li>
+<li>Invite</li>
+<ul>
+<li><a href="../Institutepanel/InviteFaculty.aspx">Faculty</a></li>
+<li><a href="../Institutepanel/InviteStudent.aspx">Students</a></li>  
+</ul>
+<li><a href="../InstitutePanel/StudentLead.aspx">Students Lead</a></li>   
+<li><a href="#">More...</a></li>
+<ul>
+<li><a >Help Desk</a></li>
+<li><a href="../InstitutePanel/changepaswd.aspx">Change Password</a></li>
+</ul>
+
+
+</ul>
+</div>
+<div class="left-sectn-navi" id ="Student" runat ="server" visible ="false">
+
+<ul>
+
+<li>
+
+<asp:LinkButton ID="LinkButton6" runat="server" Visible ="false" OnClick="LinkButton1_Click" Style="color:Black" > Profile </asp:LinkButton>
+
+
+</li>
+
+
+<%--<li><a href="UpdateTutorProfile.aspx">Profile </a></li>--%>
+
+    <li><a href="../InstitutePanel/SchoolCollegeList.aspx?sec=yes">My School</a></li>
+    <li><a href="../InstitutePanel/SchoolCollegeList.aspx?higher=yes">My College</a></li>
+<li><a href="#">My Teacher</a></li>  
+<li><a href="../Academic/CreateFolder.aspx">My Academic</a></li>  
+   
+<li><a href="#">More...</a></li>
+<ul>
+<li>Help Desk</li>
+<li><a href="../InstitutePanel/changepaswd.aspx">Change Password</a></li>
+</ul>
+<%--</li>--%>
+
+</ul>
+</div>
+<div class="advrtng"></div>
+
+</div>
+<div class="middle-sectn-main-02">
+
+<asp:Panel ID="EditImage" runat="server" style="border:2px solid #DADADA;" >
+            <table width="500px"  style="background-color:#929292; height:200px;  text-align:center"  >
+            <tr valign="top"><td align="right" style="color:White; size:15px;height: 17px;">
+                <asp:LinkButton ID="LinkButton3" CssClass="crosbutton" runat="server"><span style="padding-right:5px;" >X</span></asp:LinkButton></td></tr>
+            <tr valign="top"><td style="color:White; font-family:Verdana; font-weight:500; height: 22px;">
+                Choose Your Logo Image<br /> &nbsp;<asp:Label ID="lblMsg" runat="server"></asp:Label>
+                </td></tr>
+             <tr valign="top"><td style="height: 26px">
+                 <asp:FileUpload ID="FileUpload1" runat="server" />
+                 <span style="color:White; size:15px;height: 17px;">
+                 (size Height:150px, Width:150px;)</span>
+                 </td></tr>
+              <tr valign="top"><td style="height: 30px">
+                  <asp:Button ID="btupload" runat="server" Text="Upload" 
+                  onclick="btupload_Click" />
+                                                   
+             </td>
+                      </tr>
+            </table>
+            </asp:Panel>
+ <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+<div class="artcless-container">
+
+
+</div>
+
+
+</div>
+<div class="container-rght-sectn-05">
+<p class="edu-analy-hdng">Edu Analytics</p>
+<div class="view-profile-sectn"><p class="view-sectn">&nbsp;&nbsp;Viewed:&nbsp;&nbsp;&nbsp; <span class="view-profile-box"><asp:Label ID="lblViewed" runat="server" ></asp:Label></span></p><p class="view-sectn">Applied:&nbsp;&nbsp;&nbsp;<span class="view-profile-box"><asp:Label ID="lblApplied" runat="server" ></asp:Label></span></p></div>
+<div class="left-sectn-blk">
+<p><span class="user-updates">User Updates</span><span><img src="../images/user-updates.jpg" width="29" height="30" alt="User"></span></p>
+<div class="img-contnt-sectn">
+<div class="img-01"></div>
+<div class="img-contnt">
+<h5 class="hdng-01">IgnoU</h5>
+<p class="paras">Open Community College</p>
+</div>
+</div>
+</div>
+<div class="left-sectn-blk-01">
+<p><span class="user-updates">Books World</span></p>
+<div class="img-contnt-sectn">
+<div class="img-01"></div>
+<div class="img-contnt">
+<p class="paras-01">Lorem ipsum <br>
+Lorem ipsum dolor siter amet,</p>
+
+</div>
+</div>
+</div>
+<div class="left-sectn-blk-01">
+<p><span class="user-updates">Advance School</span></p>
+<div class="img-contnt-sectn">
+<div class="img-01"><img src="images/advancelogo.jpg" width="61" height="52" alt="Advance"></div>
+<div class="img-contnt">
+<p class="paras-01">Lorem ipsum <br>
+Lorem ipsum dolor siter amet,</p>
+
+</div>
+</div>
+</div>
+<div class="lft-news">
+<p style="margin-bottom:0;"><span class="user-updates-01">Jobs</span></p>
+<div class="img-contnt-sectn">
+<div class="blks"></div>
+<div class="img-contnt">
+<p class="paras-01">Lorem ipsum <br>
+Lorem ipsum dolor siter amet,</p>
+</div>
+<p class="readmore">readmore...</p>
+</div>
+</div>
+<div class="lft-news">
+<p style="margin-bottom:0;"><span class="user-updates-01">Tuition Request</span></p>
+<div class="img-contnt-sectn">
+<div class="blks"></div>
+<div class="img-contnt">
+<p class="paras-01">Lorem ipsum <br>
+Lorem ipsum dolor siter amet,</p>
+</div>
+<p class="readmore">readmore...</p>
+</div>
+</div>
+
+
+</div>
+
+</div>
+
+</form>
+<%-- <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>--%>
+</body>
+</html>

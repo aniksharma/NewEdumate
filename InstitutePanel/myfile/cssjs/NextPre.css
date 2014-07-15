@@ -1,0 +1,92 @@
+﻿.calander
+{
+ width:550px;
+ 
+}
+
+.dayheader
+{
+	
+	
+	padding:5px 5px 5px 5px;
+background:#E6F0F3;
+	color:Black;
+	font-size:12px;
+	font-family:Verdana;
+}
+.nextprev
+{
+	padding:5px 5px 0px 5px;
+    color:White;
+	
+}
+.title
+{
+	
+ padding-top:5px;
+ font-family:Sans-Serif;
+		background:#2E5E79;
+	color:White;
+	font-size:15px;
+}
+
+.selector
+{
+	border-width:2px;
+	border-color:#2E5E79;
+	border-style:solid;
+}
+.day,.othermonthday,.selectedday,.todayday,.weekendday
+{
+	padding-top:5px;
+	font-size:11px;
+	font-family:MS Reference Sans Serif;
+ width:50px;
+	height:100px; 	
+	border-width:2px;
+	border-color:#2E5E79;
+	border-style:solid;
+}
+.day
+{
+	
+	background:#DCDCDC;
+	
+	
+}
+
+
+.othermonthday
+{
+	background-color:White;
+
+}
+
+
+
+.todayday
+{
+	background:#2E5E79;
+	color:White;
+}
+.weekendday
+{
+	
+	background-color:#bbbbbb;
+	
+	
+}
+.selectedday
+{
+	background:#2E5E79;
+	color:White;
+}
+
+
+.drp
+{
+	 width:190px;
+	 height:28px;
+	 font-family:Verdana;
+	 font-size:12px;
+}

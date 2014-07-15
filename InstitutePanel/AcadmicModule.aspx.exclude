@@ -1,0 +1,24 @@
+<%@ Page Language="C#" MasterPageFile="~/InstitutePanel/MasterPage2.master" AutoEventWireup="true" CodeFile="AcadmicModule.aspx.cs" Inherits="InstitutePanel_AcadmicModule" Title="EDU HUB" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<link href="styles1.css" rel="stylesheet" type="text/css" />
+<div style=" border: 1px solid #ccc;" >
+<div class="middleDiv">
+<h3>Academic Module</h3>
+<div class="iconrowDiv">
+<div class="firsticoncontentDiv"><center><img src="image/icon/lecturenote.png" /><br />Lecture Notes</center></div>
+<div class="iconcontentDiv"><center><img src="image/icon/practicalnote.png" /><br />Practicle Notes</center></div>
+<div class="iconcontentDiv"><center><img src="image/icon/mcq.png" /><br />MCQ</center></div>
+
+</div>
+
+<div class="iconrowDiv">
+<div class="firsticoncontentDiv"><center><img src="image/icon/audiolecture.png" /><br />Audio Lecture</center></div>
+<div class="iconcontentDiv"><center><img src="image/icon/story.png" /><br />Story</center></div>
+<div class="iconcontentDiv"><center><img src="image/icon/videolecture.png" /><br />Video Lecture</center></div>
+</div>
+
+</div>
+</div>
+</asp:Content>
+

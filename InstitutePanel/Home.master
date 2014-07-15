@@ -1,0 +1,228 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Home.master.cs" Inherits="InstitutePanel_Home" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
+<%@ Register src="~/Institutemenu/adminmenus.ascx" tagname="masterright" tagprefix="uc3" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../render/stylesheetedumate.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="frm" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <section>
+<header>
+<div class="header-inner">
+<div class="logo-sectn"><img src="../images/logo.jpg" width="62" height="52" class="img-prfil" alt="Edumate"></div>
+<div class="country-sectn">
+<select name="" class="slct-fld">
+<option>Country</option>
+<option>a</option>
+<option>b</option>
+<option>c</option>
+<option>d</option>
+</select>
+</div>
+<article class="header-inner-right">
+<ul>
+<li><a href="#" title="Home">Home</a></li>
+<li><a href="#" title="Courses">Courses</a></li>
+<li><a href="#" title="Careers">Careers</a></li>
+<li><a href="#" title="Education Board">Education Board</a></li>
+<li><a href="#" title="Exam">Exam</a></li>
+</ul>
+
+</article>
+
+</div>
+<div class="header-top-02">
+  <div class="header-top-01-innr">
+    <div class="navi-top-02">
+      
+    </div>
+    <div class="search-sectn">
+      <input name="input" type="text" placeholder="search" class="search-fld-sectn">
+      <input name="input" type="button" value="search" class="search-btn-setcn-01">
+    </div>
+    
+  </div>
+</div>
+</header>
+<div class="header-top-02">
+<div class="header-top-01-innr">
+<div class="navi-top-02">
+
+</div>
+
+
+</div>
+</div>
+<div class="navi-04">
+<uc3:masterright ID="header1" runat="server" />
+
+<asp:DropDownList ID ="ddlcountry" runat ="server" class="slct-fld" AutoPostBack ="true" onselectedindexchanged="ddlcountry_SelectedIndexChanged" style="border-left-width: 1px; margin-left: 256px;" visible="false" ></asp:DropDownList>
+
+<asp:DropDownList ID ="DropDownList1" runat ="server" class="slct-fld" 
+       
+          visible="false"></asp:DropDownList>
+         
+           <asp:DropDownList ID="ddl" runat="server" class="slct-fld" visible="false">
+                                  </asp:DropDownList>
+                                  <asp:DropDownList ID="ddlUniType" runat="server" class="slct-fld" visible="false">
+                                  </asp:DropDownList>
+
+
+</div>
+<p class="sngle-line"></p>
+
+<div class="middle-sectn-ebag">
+
+<div class="container-left-sectn">
+<div class="img-box"> <asp:Image ID="imglogo" runat="server" Height="122px" 
+        Width="106px" /> </div>
+<p class="edit">  <asp:LinkButton ID="LinkButton2" CssClass="iconlink" runat="server" >Edit Image</asp:LinkButton>                                           
+                                            <cc1:ModalPopupExtender ID="LinkButton2_ModalPopupExtender" runat="server" 
+        BackgroundCssClass="backcss" CancelControlID="LinkButton3" 
+        DynamicServicePath="" Enabled="True" PopupControlID="EditImage" 
+        TargetControlID="LinkButton2">
+    </cc1:ModalPopupExtender></p>
+<p class="profile-name"><asp:Literal ID="litName" runat="server"></asp:Literal> </p>
+<div class="left-sectn-navi">
+<ul>
+<li><a href="UpdateTutorProfile.aspx">Profile </a></li>
+<li><a href="List.aspx">Listing</a></li>
+<li><a href="#">Job</a></li>
+<li><a href="../Academic/CreateFolder.aspx">Acadmic</a></li>  
+<li><a href="StudentLead.aspx">Students Lead</a></li>  
+<li><a href="#">Students Group</a></li>  
+<li><a href="#">More...</a></li>
+<ul>
+<li>Help Desk</li>
+<li>Change Password</li>
+</ul>
+</li>
+
+</ul>
+</div>
+<div class="advrtng"></div>
+
+</div>
+
+<section class="middle-sectn-01">
+<p class="sngle-line">
+<asp:Panel ID="EditImage" runat="server" style="border:2px solid #DADADA;" >
+            <table width="500px"  style="background-color:#929292; height:200px;  text-align:center"  >
+            <tr valign="top"><td align="right" style="color:White; size:15px;height: 17px;">
+                <asp:LinkButton ID="LinkButton3" CssClass="crosbutton" runat="server"><span style="padding-right:5px;" >X</span></asp:LinkButton></td></tr>
+            <tr valign="top"><td style="color:White; font-family:Verdana; font-weight:500; height: 22px;">
+                Choose Your Logo Image<br /> &nbsp;<asp:Label ID="lblMsg" runat="server"></asp:Label>
+                </td></tr>
+             <tr valign="top"><td style="height: 26px">
+                 <asp:FileUpload ID="FileUpload1" runat="server" />
+                 <span style="color:White; size:15px;height: 17px;">
+                 (size Height:150px, Width:150px;)</span>
+                 </td></tr>
+              <tr valign="top"><td style="height: 30px">
+                  <asp:Button ID="btupload" runat="server" Text="Upload" 
+                  onclick="btupload_Click" />
+                                                   
+             </td>
+                      </tr>
+            </table>
+            </asp:Panel>
+ <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+</p>
+<div class="artcless-container">
+
+
+</div>
+</article>
+<article class="btm-sectn">
+
+</article>
+</section>
+<section class="container-rght-sectn">
+<div class="advrtng"></div>
+<div class="container-left-sectn">
+<p class="edu-analy-hdng">Edu Analytics</p>
+<div class="view-profile-sectn"><p class="view-sectn">&nbsp;&nbsp;Viewed:&nbsp;&nbsp;&nbsp; <span class="view-profile-box"><asp:Label ID="lblViewed" runat="server" ></asp:Label></span></p><p class="view-sectn">Applied:&nbsp;&nbsp;&nbsp;<span class="view-profile-box"><asp:Label ID="lblApplied" runat="server" ></asp:Label></span></p></div>
+<div class="left-sectn-blk">
+<p><span class="user-updates">User Updates</span><span><img src="../images/user-updates.jpg" width="29" height="30" alt="User"></span></p>
+<div class="img-contnt-sectn">
+<div class="img-01"></div>
+<div class="img-contnt">
+<h5 class="hdng-01">IgnoU</h5>
+<p class="paras">Open Community College</p>
+</div>
+</div>
+</div>
+<div class="left-sectn-blk-01">
+<p><span class="user-updates">Books World</span></p>
+<div class="img-contnt-sectn">
+<div class="img-01"></div>
+<div class="img-contnt">
+<p class="paras-01">Lorem ipsum <br>
+Lorem ipsum dolor siter amet,</p>
+
+</div>
+</div>
+</div>
+<div class="left-sectn-blk-01">
+<p><span class="user-updates">Advance School</span></p>
+<div class="img-contnt-sectn">
+<div class="img-01"><img src="images/advancelogo.jpg" width="61" height="52" alt="Advance"></div>
+<div class="img-contnt">
+<p class="paras-01">Lorem ipsum <br>
+Lorem ipsum dolor siter amet,</p>
+
+</div>
+</div>
+</div>
+<div class="lft-news">
+<p style="margin-bottom:0;"><span class="user-updates-01">Jobs</span></p>
+<div class="img-contnt-sectn">
+<div class="blks"></div>
+<div class="img-contnt">
+<p class="paras-01">Lorem ipsum <br>
+Lorem ipsum dolor siter amet,</p>
+</div>
+<p class="readmore">readmore...</p>
+</div>
+</div>
+<div class="lft-news">
+<p style="margin-bottom:0;"><span class="user-updates-01">Tuition Request</span></p>
+<div class="img-contnt-sectn">
+<div class="blks"></div>
+<div class="img-contnt">
+<p class="paras-01">Lorem ipsum <br>
+Lorem ipsum dolor siter amet,</p>
+</div>
+<p class="readmore">readmore...</p>
+</div>
+</div>
+</div>
+</aside>
+</section>
+</div>
+<footer>
+<div class="footer-innr">
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">About us</a></li>
+<li><a href="#">Services</a></li>
+<li><a href="#">Help</a></li>
+<li><a href="#">Contact us</a></li>
+</ul>
+</div>
+</footer>
+</section>
+    </form>
+</body>
+</html>
