@@ -19,14 +19,19 @@ using nmsProfile;
 using System.Net;
 using System.Web.Script.Serialization;
 using nmsDropDown;
+using System.Data;
 public partial class UserControl_RightControl : System.Web.UI.UserControl
 {
     clsBLprofile obj;
     prpLogin prplogin;
     prpLogin prppram;
     string ToMail, FromMail, BodyMail, HeadMail;
+
+    EdumateService.EdumateServiceClient proxy;
+    string msg, msg1;
+    DataSet ds;
     protected void Page_Load(object sender, EventArgs e)
-        {
+    {
         Response.Cache.SetExpires(DateTime.UtcNow.AddMinutes(-1));
         Response.Cache.SetCacheability(HttpCacheability.NoCache);
         Response.Cache.SetNoStore();
@@ -52,7 +57,7 @@ public partial class UserControl_RightControl : System.Web.UI.UserControl
             loginformDiv.Attributes.Add("style", "display:block;");
             afterlogin.Attributes.Add("style", "display:none;");
             Session["OfficeCollege"] = prplogin;
-          
+
 
             loginok.InnerHtml = "User Login";
 
@@ -89,8 +94,8 @@ public partial class UserControl_RightControl : System.Web.UI.UserControl
             }
             usename.InnerHtml = prplogin.bindStatus;
             email.InnerHtml = prplogin.employeeName;
-          img111.Attributes.Add("src", "http://www.edumateworld.com" + prplogin.urlPath);
-            
+            img111.Attributes.Add("src", "http://www.edumateworld.com" + prplogin.urlPath);
+
             if (prplogin.loginName != "")
             {
                 contactno.InnerHtml = "<b>Contact No.: </b>" + prplogin.loginName;
@@ -182,17 +187,17 @@ public partial class UserControl_RightControl : System.Web.UI.UserControl
                 }
                 else
                 {
-                  Response.Redirect("~/InstitutePanel/Default.aspx");
+                    Response.Redirect("~/InstitutePanel/Default.aspx");
                 }
 
 
                 if (prplogin.loginType == "2")
                 {
-                     loginok.InnerHtml = "Institute";
+                    loginok.InnerHtml = "Institute";
                 }
                 else if (prplogin.loginType == "3")
                 {
-                 loginok.InnerHtml = "School";
+                    loginok.InnerHtml = "School";
                 }
                 else if (prplogin.loginType == "4")
                 {
@@ -241,7 +246,7 @@ public partial class UserControl_RightControl : System.Web.UI.UserControl
                     Response.Redirect("http://www.edumateworld.com/controlpanel-welcome-User");
                 }
             }
-          
+
 
         }
         else
@@ -252,7 +257,7 @@ public partial class UserControl_RightControl : System.Web.UI.UserControl
         {
             loginformDiv.Attributes.Add("style", "display:block;");
             afterlogin.Attributes.Add("style", "display:none;");
-          
+
 
 
         }
@@ -260,7 +265,7 @@ public partial class UserControl_RightControl : System.Web.UI.UserControl
         {
             loginformDiv.Attributes.Add("style", "display:none;");
             afterlogin.Attributes.Add("style", "display:block;");
-           
+
 
         }
     }
@@ -321,6 +326,10 @@ public partial class UserControl_RightControl : System.Web.UI.UserControl
         }
 
     }
+    /// <summary>
+    /// Ok by Bhanu
+    /// </summary>
+    /// <returns></returns>
     private string checkLogin()
     {
         obj = new clsBLprofile();
@@ -330,6 +339,10 @@ public partial class UserControl_RightControl : System.Web.UI.UserControl
         prppram.IPaddress = Request.UserHostAddress;
         return obj.CheckInstituteLogin(prppram);
     }
+    /// <summary>
+    /// Ok by bhanu
+    /// </summary>
+    /// <returns></returns>
     private string checkICCOLogin()
     {
         obj = new clsBLprofile();
@@ -343,7 +356,7 @@ public partial class UserControl_RightControl : System.Web.UI.UserControl
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         collegeLogin();
-       
+
     }
     protected void btOk_Click(object sender, EventArgs e)
     {
@@ -466,30 +479,38 @@ Copyright 2012 Edu Education Group
         LinkButton6_ModalPopupExtender.Show();
     }
     private void stream()
-    {////Bind
-        clsBLSetup bl = new clsBLSetup();
-        PRPSetup prppram = new PRPSetup();
-        prppram.uniID = "4";
-        prppram.name = "crsViewAllMainCategory";
-        ddlStream.DataSource = bl.ViewUniversityTypeWithParamater(prppram);
+    {
+        proxy = new EdumateService.EdumateServiceClient();
+        EdumateService.DbPara[] arrObj = new EdumateService.DbPara[1];
+        arrObj[0] = new EdumateService.DbPara();
+        arrObj[0].ParaName = "@id";
+        arrObj[0].ParaValue = "4";
+        ds = new DataSet();
+        ds = proxy.EdumateGetDataSetSP(out msg, out msg1, arrObj, "crsViewAllMainCategory");
+        ddlStream.DataSource = ds;
         ddlStream.DataTextField = "name";
         ddlStream.DataValueField = "id";
         ddlStream.DataBind();
         ddlStream.Items.Insert(0, "Select Stream");
     }
     private void substream()
-    {////Bind
-        clsBLSetup bl = new clsBLSetup();
-        PRPSetup prppram = new PRPSetup();
-        prppram.name = "crsViewAllSubCategory";
-
-        prppram.uniID = ddlStream.SelectedValue;
-        ddlSubstream.DataSource = bl.ViewUniversityTypeWithParamater(prppram);
+    {
+        proxy = new EdumateService.EdumateServiceClient();
+        EdumateService.DbPara[] arrObj = new EdumateService.DbPara[2];
+        arrObj[0] = new EdumateService.DbPara();
+        arrObj[0].ParaName = "@id";
+        arrObj[0].ParaValue = ddlStream.SelectedValue;
+        arrObj[1] = new EdumateService.DbPara();
+        arrObj[1].ParaName = "@Type";
+        arrObj[1].ParaValue = "1";
+        
+        ds = new DataSet();
+        ds = proxy.EdumateGetDataSetSP(out msg, out msg1, arrObj, "crsViewAllSubCategory");
+        ddlSubstream.DataSource = ds;
         ddlSubstream.DataTextField = "name";
         ddlSubstream.DataValueField = "id";
         ddlSubstream.DataBind();
-        ListItem lt = new ListItem("Sub Stream", "0");
-        ddlSubstream.Items.Insert(0, lt);
+        ddlSubstream.Items.Insert(0, "Sub Stream");
     }
     protected void ddlStream_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -532,5 +553,5 @@ Copyright 2012 Edu Education Group
     {
 
     }
-    
+
 }

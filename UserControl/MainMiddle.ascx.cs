@@ -11,21 +11,15 @@ using System.Data;
 
 public partial class UserControl_MainMiddle : System.Web.UI.UserControl
 {
-    PRPSetup prppram;
-    PRPSetup prp;
-    clsBLSetup bl;
-
-    string type = "", memberId = "";
-    static string branchId = "";
-    string strcon = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
+ 
     protected int TotalCount;
     protected int TotalCount1;
     protected int TotalCount2;
-    SqlDataAdapter da;
-    int contid;
-    protected DataSet ds = new DataSet();
-    protected DataSet ds1 = new DataSet();
-    protected DataSet ds2 = new DataSet();
+    protected DataSet ds;
+    protected DataSet ds1;
+    protected DataSet ds2;
+    EdumateService.EdumateServiceClient proxy;
+    string msg, msg1;
     protected void Page_Load(object sender, EventArgs e)
     {
         SelectDatail(1);
@@ -35,36 +29,22 @@ public partial class UserControl_MainMiddle : System.Web.UI.UserControl
 
     private void SelectDatail(Int32 pageIndex)
     {
-
-        bl = new clsBLSetup();
-        prppram = new PRPSetup();
-        Int32 pageSize = Convert.ToInt32("1");
-
-        prppram.pageIndex = pageIndex.ToString();
-        prppram.pageSize = pageSize.ToString();
-        //---------for page work here
-
-        SqlConnection con = new SqlConnection(strcon);
-        SqlCommand cmd = new SqlCommand("viewNewsWithPaging1", con);
-        cmd.CommandType = CommandType.StoredProcedure;
-        SqlParameter[] paramsToStore =
-           new SqlParameter[4];
-        paramsToStore[0] = new SqlParameter("@pageSize", SqlDbType.NVarChar);
-        paramsToStore[0].Size = 20;
-        cmd.Parameters.Add(paramsToStore[0]).Value = "7";
-        paramsToStore[1] = new SqlParameter("@pageIndex", SqlDbType.NVarChar);
-        paramsToStore[1].Size = 100;
-        cmd.Parameters.Add(paramsToStore[1]).Value = pageIndex;
-        paramsToStore[2] = new SqlParameter("@newsType", SqlDbType.NVarChar);
-        paramsToStore[2].Size = 60;
-        cmd.Parameters.Add(paramsToStore[2]).Value = "7";
-
-        paramsToStore[3] = new SqlParameter("@uniId", SqlDbType.NVarChar);
-        paramsToStore[3].Size = 60;
-        cmd.Parameters.Add(paramsToStore[3]).Value = "1";
-        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        da.Fill(ds);
-
+        proxy = new EdumateService.EdumateServiceClient();
+        EdumateService.DbPara[] arrObj = new EdumateService.DbPara[4];
+        arrObj[0] = new EdumateService.DbPara();
+        arrObj[0].ParaName = "@pageSize";
+        arrObj[0].ParaValue = "7";
+        arrObj[1] = new EdumateService.DbPara();
+        arrObj[1].ParaName = "@pageIndex";
+        arrObj[1].ParaValue = Convert.ToString(pageIndex);
+        arrObj[2] = new EdumateService.DbPara();
+        arrObj[2].ParaName = "@newsType";
+        arrObj[2].ParaValue = "7";
+        arrObj[3] = new EdumateService.DbPara();
+        arrObj[3].ParaName = "@uniId";
+        arrObj[3].ParaValue = "1";
+        ds = new DataSet();
+        ds = proxy.EdumateGetDataSetSP(out msg, out msg1, arrObj, "viewNewsWithPaging1");
         //----------------------------------------------
         if (ds.Tables[0].Rows.Count > 0)
         {
@@ -74,41 +54,22 @@ public partial class UserControl_MainMiddle : System.Web.UI.UserControl
     }
     private void SelectDatailnews(Int32 pageIndex)
     {
-
-        bl = new clsBLSetup();
-        prppram = new PRPSetup();
-        Int32 pageSize = Convert.ToInt32("1");
-
-        prppram.pageIndex = pageIndex.ToString();
-        prppram.pageSize = pageSize.ToString();
-        //---------for page work here
-
-        SqlConnection con = new SqlConnection(strcon);
-        SqlCommand cmd = new SqlCommand("viewNewsWithPaging1", con);
-        cmd.CommandType = CommandType.StoredProcedure;
-        SqlParameter[] paramsToStore =
-           new SqlParameter[4];
-        paramsToStore[0] = new SqlParameter("@pageSize", SqlDbType.NVarChar);
-        paramsToStore[0].Size = 20;
-        cmd.Parameters.Add(paramsToStore[0]).Value = "7";
-        paramsToStore[1] = new SqlParameter("@pageIndex", SqlDbType.NVarChar);
-        paramsToStore[1].Size = 100;
-        cmd.Parameters.Add(paramsToStore[1]).Value = pageIndex;
-        paramsToStore[2] = new SqlParameter("@newsType", SqlDbType.NVarChar);
-        paramsToStore[2].Size = 60;
-        cmd.Parameters.Add(paramsToStore[2]).Value = "9";
-
-        paramsToStore[3] = new SqlParameter("@uniId", SqlDbType.NVarChar);
-        paramsToStore[3].Size = 60;
-        cmd.Parameters.Add(paramsToStore[3]).Value = "1";
-
-
-        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        da.Fill(ds1);
-
-
-
-        //----------------------------------------------
+        proxy = new EdumateService.EdumateServiceClient();
+        EdumateService.DbPara[] arrObj = new EdumateService.DbPara[4];
+        arrObj[0] = new EdumateService.DbPara();
+        arrObj[0].ParaName = "@pageSize";
+        arrObj[0].ParaValue = "7";
+        arrObj[1] = new EdumateService.DbPara();
+        arrObj[1].ParaName = "@pageIndex";
+        arrObj[1].ParaValue = Convert.ToString(pageIndex);
+        arrObj[2] = new EdumateService.DbPara();
+        arrObj[2].ParaName = "@newsType";
+        arrObj[2].ParaValue = "9";
+        arrObj[3] = new EdumateService.DbPara();
+        arrObj[3].ParaName = "@uniId";
+        arrObj[3].ParaValue = "1";
+        ds1 = new DataSet();
+        ds1 = proxy.EdumateGetDataSetSP(out msg, out msg1, arrObj, "viewNewsWithPaging1");        //----------------------------------------------
         if (ds1.Tables[0].Rows.Count > 0)
         {
             TotalCount1 = ds1.Tables[0].Rows.Count;
@@ -118,32 +79,22 @@ public partial class UserControl_MainMiddle : System.Web.UI.UserControl
     private void SelectDatailAlerts(Int32 pageIndex)
     {
 
-        bl = new clsBLSetup();
-        prppram = new PRPSetup();
-        Int32 pageSize = Convert.ToInt32("1");
-
-        prppram.pageIndex = pageIndex.ToString();
-        prppram.pageSize = pageSize.ToString();
-        SqlConnection con = new SqlConnection(strcon);
-        SqlCommand cmd = new SqlCommand("viewNewsWithPaging1", con);
-        cmd.CommandType = CommandType.StoredProcedure;
-        SqlParameter[] paramsToStore =
-           new SqlParameter[4];
-        paramsToStore[0] = new SqlParameter("@pageSize", SqlDbType.NVarChar);
-        paramsToStore[0].Size = 20;
-        cmd.Parameters.Add(paramsToStore[0]).Value = "7";
-        paramsToStore[1] = new SqlParameter("@pageIndex", SqlDbType.NVarChar);
-        paramsToStore[1].Size = 100;
-        cmd.Parameters.Add(paramsToStore[1]).Value = pageIndex;
-        paramsToStore[2] = new SqlParameter("@newsType", SqlDbType.NVarChar);
-        paramsToStore[2].Size = 60;
-        cmd.Parameters.Add(paramsToStore[2]).Value = "8";
-
-        paramsToStore[3] = new SqlParameter("@uniId", SqlDbType.NVarChar);
-        paramsToStore[3].Size = 60;
-        cmd.Parameters.Add(paramsToStore[3]).Value = "1";
-        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        da.Fill(ds2);
+        proxy = new EdumateService.EdumateServiceClient();
+        EdumateService.DbPara[] arrObj = new EdumateService.DbPara[4];
+        arrObj[0] = new EdumateService.DbPara();
+        arrObj[0].ParaName = "@pageSize";
+        arrObj[0].ParaValue = "7";
+        arrObj[1] = new EdumateService.DbPara();
+        arrObj[1].ParaName = "@pageIndex";
+        arrObj[1].ParaValue = Convert.ToString(pageIndex);
+        arrObj[2] = new EdumateService.DbPara();
+        arrObj[2].ParaName = "@newsType";
+        arrObj[2].ParaValue = "8";
+        arrObj[3] = new EdumateService.DbPara();
+        arrObj[3].ParaName = "@uniId";
+        arrObj[3].ParaValue = "1";
+        ds2 = new DataSet();
+        ds2 = proxy.EdumateGetDataSetSP(out msg, out msg1, arrObj, "viewNewsWithPaging1");
         if (ds2.Tables[0].Rows.Count > 0)
         {
             TotalCount2 = ds2.Tables[0].Rows.Count;

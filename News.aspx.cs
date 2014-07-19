@@ -11,31 +11,15 @@ using nmsSetupI;
 
 public partial class News : System.Web.UI.Page
 {
-    PRPSetup prppram;
-    PRPSetup prp;
-    clsBLSetup bl;
-
-    string type = "", memberId = "";
-    static string branchId = "";
-    string strcon = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-   
-    SqlDataAdapter da;
-    int contid;
-    protected int TotalCount;
-    protected DataSet ds = new DataSet();
     string title = string.Empty;
-
-    protected int TotalCount1;
-    protected DataSet ds1 = new DataSet();
-
-    protected int TotalCount2;
-    protected DataSet ds2 = new DataSet();
-
-    
+    protected DataSet ds;
+    protected DataSet ds1;
+    protected DataSet ds2;
+    EdumateService.EdumateServiceClient proxy;
+    string msg, msg1;
     protected void Page_Load(object sender, EventArgs e)
     {
         title = HttpContext.Current.Request.RequestContext.RouteData.Values["title"].ToString();
-
         if (title == "news")
         {
             SelectDatail(1);
@@ -46,136 +30,76 @@ public partial class News : System.Web.UI.Page
         else if (title == "articles")
         {
             SelectDatailArticles(1);
-
             news.Visible = false;
             alerts.Visible = false;
             articles.Visible = true;
         }
         else if (title == "alerts")
-        { 
-        SelectDatailAlerts(1);
-        news.Visible = false;
-        alerts.Visible = true;
-        articles.Visible = false;
+        {
+            SelectDatailAlerts(1);
+            news.Visible = false;
+            alerts.Visible = true;
+            articles.Visible = false;
         }
     }
     private void SelectDatail(Int32 pageIndex)
     {
-
-        bl = new clsBLSetup();
-        prppram = new PRPSetup();
-        Int32 pageSize = Convert.ToInt32("1");
-
-        prppram.pageIndex = pageIndex.ToString("1");
-        prppram.pageSize = pageSize.ToString();
-        SqlConnection con = new SqlConnection(strcon);
-        SqlCommand cmd = new SqlCommand("viewNewsWithPaging1", con);
-        cmd.CommandType = CommandType.StoredProcedure;
-        SqlParameter[] paramsToStore =
-           new SqlParameter[4];
-        paramsToStore[0] = new SqlParameter("@pageSize", SqlDbType.NVarChar);
-        paramsToStore[0].Size = 20;
-        cmd.Parameters.Add(paramsToStore[0]).Value = "10";
-        paramsToStore[1] = new SqlParameter("@pageIndex", SqlDbType.NVarChar);
-        paramsToStore[1].Size = 100;
-        cmd.Parameters.Add(paramsToStore[1]).Value = pageIndex;
-        paramsToStore[2] = new SqlParameter("@newsType", SqlDbType.NVarChar);
-        paramsToStore[2].Size = 60;
-        cmd.Parameters.Add(paramsToStore[2]).Value = "7";
-
-        paramsToStore[3] = new SqlParameter("@uniId", SqlDbType.NVarChar);
-        paramsToStore[3].Size = 60;
-        cmd.Parameters.Add(paramsToStore[3]).Value = "1";
-        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        da.Fill(ds);
-
-
-
-        //----------------------------------------------
-
-        TotalCount = ds.Tables[0].Rows.Count;
+        proxy = new EdumateService.EdumateServiceClient();
+        EdumateService.DbPara[] arrObj = new EdumateService.DbPara[4];
+        arrObj[0] = new EdumateService.DbPara();
+        arrObj[0].ParaName = "@pageSize";
+        arrObj[0].ParaValue = "10";
+        arrObj[1] = new EdumateService.DbPara();
+        arrObj[1].ParaName = "@pageIndex";
+        arrObj[1].ParaValue = Convert.ToString(pageIndex);
+        arrObj[2] = new EdumateService.DbPara();
+        arrObj[2].ParaName = "@newsType";
+        arrObj[2].ParaValue = "7";
+        arrObj[3] = new EdumateService.DbPara();
+        arrObj[3].ParaName = "@uniId";
+        arrObj[3].ParaValue = "1";
+        ds = new DataSet();
+        ds = proxy.EdumateGetDataSetSP(out msg, out msg1, arrObj, "viewNewsWithPaging1");
 
     }
     private void SelectDatailAlerts(Int32 pageIndex)
     {
+        proxy = new EdumateService.EdumateServiceClient();
+        EdumateService.DbPara[] arrObj = new EdumateService.DbPara[4];
+        arrObj[0] = new EdumateService.DbPara();
+        arrObj[0].ParaName = "@pageSize";
+        arrObj[0].ParaValue = "10";
+        arrObj[1] = new EdumateService.DbPara();
+        arrObj[1].ParaName = "@pageIndex";
+        arrObj[1].ParaValue = Convert.ToString(pageIndex);
+        arrObj[2] = new EdumateService.DbPara();
+        arrObj[2].ParaName = "@newsType";
+        arrObj[2].ParaValue = "8";
+        arrObj[3] = new EdumateService.DbPara();
+        arrObj[3].ParaName = "@uniId";
+        arrObj[3].ParaValue = "1";
+        ds1 = new DataSet();
+        ds1 = proxy.EdumateGetDataSetSP(out msg, out msg1, arrObj, "viewNewsWithPaging1");
 
-        bl = new clsBLSetup();
-        prppram = new PRPSetup();
-        Int32 pageSize = Convert.ToInt32("1");
-
-        prppram.pageIndex = pageIndex.ToString("1");
-        prppram.pageSize = pageSize.ToString();
-
-        SqlConnection con = new SqlConnection(strcon);
-        SqlCommand cmd = new SqlCommand("viewNewsWithPaging1", con);
-        cmd.CommandType = CommandType.StoredProcedure;
-        SqlParameter[] paramsToStore =
-           new SqlParameter[4];
-        paramsToStore[0] = new SqlParameter("@pageSize", SqlDbType.NVarChar);
-        paramsToStore[0].Size = 20;
-        cmd.Parameters.Add(paramsToStore[0]).Value = "10";
-        paramsToStore[1] = new SqlParameter("@pageIndex", SqlDbType.NVarChar);
-        paramsToStore[1].Size = 100;
-        cmd.Parameters.Add(paramsToStore[1]).Value = pageIndex;
-        paramsToStore[2] = new SqlParameter("@newsType", SqlDbType.NVarChar);
-        paramsToStore[2].Size = 60;
-        cmd.Parameters.Add(paramsToStore[2]).Value = "8";
-
-        paramsToStore[3] = new SqlParameter("@uniId", SqlDbType.NVarChar);
-        paramsToStore[3].Size = 60;
-        cmd.Parameters.Add(paramsToStore[3]).Value = "1";
-
-
-        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        da.Fill(ds1);
-
-
-
-        //----------------------------------------------
-
-        TotalCount1 = ds1.Tables[0].Rows.Count;
 
     }
     private void SelectDatailArticles(Int32 pageIndex)
     {
-
-        bl = new clsBLSetup();
-        prppram = new PRPSetup();
-        Int32 pageSize = Convert.ToInt32("1");
-
-        prppram.pageIndex = pageIndex.ToString("1");
-        prppram.pageSize = pageSize.ToString();
-        SqlConnection con = new SqlConnection(strcon);
-        SqlCommand cmd = new SqlCommand("viewNewsWithPaging1", con);
-        cmd.CommandType = CommandType.StoredProcedure;
-        SqlParameter[] paramsToStore =
-           new SqlParameter[4];
-        paramsToStore[0] = new SqlParameter("@pageSize", SqlDbType.NVarChar);
-        paramsToStore[0].Size = 20;
-        cmd.Parameters.Add(paramsToStore[0]).Value = "10";
-        paramsToStore[1] = new SqlParameter("@pageIndex", SqlDbType.NVarChar);
-        paramsToStore[1].Size = 100;
-        cmd.Parameters.Add(paramsToStore[1]).Value = pageIndex;
-        paramsToStore[2] = new SqlParameter("@newsType", SqlDbType.NVarChar);
-        paramsToStore[2].Size = 60;
-        cmd.Parameters.Add(paramsToStore[2]).Value = "9";
-
-        paramsToStore[3] = new SqlParameter("@uniId", SqlDbType.NVarChar);
-        paramsToStore[3].Size = 60;
-        cmd.Parameters.Add(paramsToStore[3]).Value = "1";
-
-
-
-        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        da.Fill(ds2);
-
-
-
-        //----------------------------------------------
-
-        TotalCount2 = ds2.Tables[0].Rows.Count;
-
+        proxy = new EdumateService.EdumateServiceClient();
+        EdumateService.DbPara[] arrObj = new EdumateService.DbPara[4];
+        arrObj[0] = new EdumateService.DbPara();
+        arrObj[0].ParaName = "@pageSize";
+        arrObj[0].ParaValue = "10";
+        arrObj[1] = new EdumateService.DbPara();
+        arrObj[1].ParaName = "@pageIndex";
+        arrObj[1].ParaValue = Convert.ToString(pageIndex);
+        arrObj[2] = new EdumateService.DbPara();
+        arrObj[2].ParaName = "@newsType";
+        arrObj[2].ParaValue = "9";
+        arrObj[3] = new EdumateService.DbPara();
+        arrObj[3].ParaName = "@uniId";
+        arrObj[3].ParaValue = "1";
+        ds2 = new DataSet();
+        ds2 = proxy.EdumateGetDataSetSP(out msg, out msg1, arrObj, "viewNewsWithPaging1");
     }
-
-   
 }

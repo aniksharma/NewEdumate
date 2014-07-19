@@ -29,6 +29,9 @@ public partial class EducationBoard : System.Web.UI.Page
     protected string Country = "";
     protected string StateName = "";
     int stateid;
+
+    EdumateService.EdumateServiceClient proxy;
+    string msg, msg1;
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -40,44 +43,31 @@ public partial class EducationBoard : System.Web.UI.Page
     }
     private void SelectDatail(Int32 pageIndex)
     {
-
-        bl = new clsBLSetup();
-        prppram = new PRPSetup();
-        Int32 pageSize = Convert.ToInt32("1");
-
-        prppram.pageIndex = pageIndex.ToString("1");
-        prppram.pageSize = pageSize.ToString();
-        SqlConnection con = new SqlConnection(strcon);
-        SqlCommand cmd = new SqlCommand("spEducationMarch", con);
-        cmd.CommandType = CommandType.StoredProcedure;
-        SqlParameter[] paramsToStore =
-           new SqlParameter[4];
-        paramsToStore[0] = new SqlParameter("@pageSize", SqlDbType.NVarChar);
-        paramsToStore[0].Size = 20;
-        cmd.Parameters.Add(paramsToStore[0]).Value = "20";
-        paramsToStore[1] = new SqlParameter("@pageIndex", SqlDbType.NVarChar);
-        paramsToStore[1].Size = 100;
-        cmd.Parameters.Add(paramsToStore[1]).Value = "1";
-        paramsToStore[2] = new SqlParameter("@cntId", SqlDbType.NVarChar);
-        paramsToStore[2].Size = 60;
-        cmd.Parameters.Add(paramsToStore[2]).Value = "1";
-        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        da.Fill(ds);
-
-
-
+        proxy = new EdumateService.EdumateServiceClient();
+        EdumateService.DbPara[] arrObj = new EdumateService.DbPara[3];
+        arrObj[0] = new EdumateService.DbPara();
+        arrObj[0].ParaName = "@pageSize";
+        arrObj[0].ParaValue = "vikash";
+        arrObj[1] = new EdumateService.DbPara();
+        arrObj[1].ParaName = "@pageIndex";
+        arrObj[1].ParaValue = "vikash";
+        arrObj[2] = new EdumateService.DbPara();
+        arrObj[2].ParaName = "@cntId";
+        arrObj[2].ParaValue = "vikash";
+        ds = new DataSet();
+        ds = proxy.EdumateGetDataSetPara(out msg, out msg1, arrObj, "spEducationMarch");
         //----------------------------------------------
 
         TotalCount = ds.Tables[0].Rows.Count;
 
     }
-    private void binduniversity()
-    {
-        clsBLdropDown drp = new clsBLdropDown();
-        clsPRPdropdown drpprp = new clsPRPdropdown();
+    //private void binduniversity()
+    //{
+    //    clsBLdropDown drp = new clsBLdropDown();
+    //    clsPRPdropdown drpprp = new clsPRPdropdown();
 
-        drpprp.spName = "viewUniversityWeb";
-        drp.bindDropDown(drpprp);
+    //    drpprp.spName = "viewUniversityWeb";
+    //    drp.bindDropDown(drpprp);
 
-    }
+    //}
 }

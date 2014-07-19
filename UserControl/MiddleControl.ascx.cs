@@ -35,6 +35,9 @@ public partial class UserControl_MiddleControl : System.Web.UI.UserControl
     string catType = "";
     string type = "";
     string code = "";
+
+    EdumateService.EdumateServiceClient proxy;
+    string msg, msg1;
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -43,7 +46,7 @@ public partial class UserControl_MiddleControl : System.Web.UI.UserControl
 
         string pageidww = this.Page.ClientQueryString;
         name = this.Page.ClientQueryString;
-       
+
 
         if (Page.IsPostBack == false)
         {
@@ -374,7 +377,7 @@ public partial class UserControl_MiddleControl : System.Web.UI.UserControl
             Response.Redirect("EntranceExam.aspx?ContId=" + ddlcountry.SelectedValue);
         }
 
-    
+
 
     }
 
@@ -699,61 +702,39 @@ public partial class UserControl_MiddleControl : System.Web.UI.UserControl
 
     private void SelectDatail(Int32 pageIndex)
     {
+        proxy = new EdumateService.EdumateServiceClient();
+        ds = new DataSet();
+        EdumateService.DbPara[] arrObj = new EdumateService.DbPara[5];
+        arrObj[0] = new EdumateService.DbPara();
+        arrObj[0].ParaName = "@pageSize";
+        arrObj[0].ParaValue = ddlNopage.SelectedValue;
+        arrObj[1] = new EdumateService.DbPara();
+        arrObj[1].ParaName = "@pageIndex";
+        arrObj[1].ParaValue = pageIndex.ToString();
+        arrObj[2] = new EdumateService.DbPara();
+        arrObj[2].ParaName = "@contid";
+        arrObj[2].ParaValue = ddlcountry.SelectedValue;
+        arrObj[3] = new EdumateService.DbPara();
+        arrObj[3].ParaName = "@stateId";
 
-        bl = new clsBLSetup();
-        prppram = new PRPSetup();
-        Int32 pageSize = Convert.ToInt32(ddlNopage.SelectedValue);
-
-        prppram.pageIndex = pageIndex.ToString();
-        prppram.pageSize = pageSize.ToString();
-
-
-
-        //---------for page work here
-
-
-
-        SqlConnection con = new SqlConnection(strcon);
-        SqlCommand cmd = new SqlCommand("viewUniversityWeb_srikant", con);
-        cmd.CommandType = CommandType.StoredProcedure;
-        SqlParameter[] paramsToStore =
-           new SqlParameter[5];
-        paramsToStore[0] = new SqlParameter("@pageSize", SqlDbType.NVarChar);
-        paramsToStore[0].Size = 20;
-        cmd.Parameters.Add(paramsToStore[0]).Value = ddlNopage.SelectedValue;
-        paramsToStore[1] = new SqlParameter("@pageIndex", SqlDbType.NVarChar);
-        paramsToStore[1].Size = 100;
-        cmd.Parameters.Add(paramsToStore[1]).Value = pageIndex;
-        paramsToStore[2] = new SqlParameter("@contid", SqlDbType.NVarChar);
-        paramsToStore[2].Size = 60;
-        cmd.Parameters.Add(paramsToStore[2]).Value = ddlcountry.SelectedValue;
-
-        paramsToStore[3] = new SqlParameter("@stateId", SqlDbType.NVarChar);
-        paramsToStore[3].Size = 60;
         if (ddlstate1.SelectedIndex == 0)
         {
-            cmd.Parameters.Add(paramsToStore[3]).Value = 0;
+            arrObj[3].ParaValue = "0";
         }
         else
         {
-            cmd.Parameters.Add(paramsToStore[3]).Value = ddlstate1.SelectedValue;
+            arrObj[3].ParaValue = ddlstate1.SelectedValue; ;
         }
 
-        paramsToStore[4] = new SqlParameter("@Id", SqlDbType.NVarChar);
-        paramsToStore[4].Size = 60;
-        cmd.Parameters.Add(paramsToStore[4]).Value = ddl.SelectedValue;
-
-
-        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        da.Fill(ds);
-
-     
+        arrObj[4] = new EdumateService.DbPara();
+        arrObj[4].ParaName = "@Id";
+        arrObj[4].ParaValue = ddl.SelectedValue;
+        ds = proxy.EdumateGetDataSetSP(out msg, out msg1, arrObj, "viewUniversityWeb_srikant");
 
         //----------------------------------------------
-
         TotalCount = ds.Tables[0].Rows.Count;
         string VirtualPaths = this.Page.AppRelativeVirtualPath;
-       
+
     }
 
     private void SelectDatailUnv(Int32 pageIndex)
@@ -804,7 +785,7 @@ public partial class UserControl_MiddleControl : System.Web.UI.UserControl
 
         TotalCount = ds.Tables[0].Rows.Count;
         string VirtualPaths = this.Page.AppRelativeVirtualPath;
-      
+
     }
     private void SelectDatailnew(Int32 pageIndex)
     {
@@ -898,7 +879,7 @@ public partial class UserControl_MiddleControl : System.Web.UI.UserControl
         SqlDataAdapter da = new SqlDataAdapter(cmd);
         da.Fill(ds5);
 
-      
+
 
         //----------------------------------------------
 
@@ -916,7 +897,7 @@ public partial class UserControl_MiddleControl : System.Web.UI.UserControl
             {
                 ddlstate1.SelectedIndex = (int)Session["Indexcity"];
 
-              
+
             }
             SelectDatail(1);
             college.Visible = false;
@@ -978,7 +959,7 @@ public partial class UserControl_MiddleControl : System.Web.UI.UserControl
         cmd.CommandType = CommandType.StoredProcedure;
         SqlParameter[] paramsToStore =
            new SqlParameter[4];
-       
+
         SqlDataAdapter da = new SqlDataAdapter(cmd);
         da.Fill(ds2);
         ddlexam.DataSource = ds2;

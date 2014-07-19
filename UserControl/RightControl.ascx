@@ -313,17 +313,17 @@ border:1px solid #da6808;margin: 0 auto;padding:8px 6px;text-align: center;width
 </div>
  <table>
                 <tr><td colspan="0">
-<asp:TextBox ID="txtLoginName" placeholder="Username" runat="server" Width="238px"  Height="16px" CssClass="txt-flds"></asp:TextBox>
+<asp:TextBox ID="txtLoginName" placeholder="Username" runat="server" Width="238px"  Height="16px" CssClass="txt-flds" ValidationGroup="CL"></asp:TextBox>
 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-ControlToValidate="txtLoginName" ErrorMessage="*" style="margin-top:8px;position:absolute;right:14px;"></asp:RequiredFieldValidator>
+ControlToValidate="txtLoginName" ErrorMessage="*" style="margin-top:8px;position:absolute;right:14px;" ValidationGroup="CL"></asp:RequiredFieldValidator>
 </td></tr>
 <tr><td colspan="0">
-<asp:TextBox ID="txtPassword" placeholder="Password" runat="server"  Height="16px" Width="238px" CssClass="txt-flds" TextMode="Password"></asp:TextBox>
+<asp:TextBox ID="txtPassword" placeholder="Password" runat="server"  Height="16px" Width="238px" CssClass="txt-flds" TextMode="Password" ValidationGroup="CL"></asp:TextBox>
 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPassword" ErrorMessage="*"
-style="margin-top:8px;position:absolute;right:18px;"></asp:RequiredFieldValidator>
+style="margin-top:8px;position:absolute;right:18px;" ValidationGroup="CL"></asp:RequiredFieldValidator>
                 </td></tr>
                 <tr><td>
-                <asp:Button ID="btnsubmit" runat="server" CssClass="sbmt-btn" Text="Submit" OnClick="btnSubmit_Click" />
+                <asp:Button ID="btnsubmit" runat="server" CssClass="sbmt-btn" Text="Submit" OnClick="btnSubmit_Click" ValidationGroup="CL" />
               
                 </td>
 <tr>

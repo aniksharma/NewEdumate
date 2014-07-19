@@ -15,8 +15,11 @@ using nmsADO;
 using nmsProfile;
 namespace nmsProfile
 {
+
     public class clsDLProfile
     {
+        EdumateService.EdumateServiceClient proxy;
+        string msg, msg1;
         //--------------------------------------------------------
         clsBLado ADO = new clsBLado();
         clsPRPadoBL ADOprp = new clsPRPadoBL();
@@ -256,16 +259,19 @@ namespace nmsProfile
 
         public string CheckLogin(prpLogin  objprp)
         {
-            adoBL.ArrayPram = new SqlParameter[3];
-
-            adoBL.ArrayPram[0] = new SqlParameter("@LoginName", objprp.loginName);
-            adoBL.ArrayPram[1] = new SqlParameter("@password", objprp.loginPassword);
-            adoBL.ArrayPram[2] = new SqlParameter("@IPaddress", objprp.IPaddress);
-            
-
-            adoBL.SPName = "spCheckLogin";
-
-            return ADO.ScalarQueryWithProceduresandParam(adoBL);
+            proxy = new EdumateService.EdumateServiceClient();
+            EdumateService.listReturns[] objlistRet = new EdumateService.listReturns[1];
+            EdumateService.DbPara[] arrObj = new EdumateService.DbPara[3];
+            arrObj[0] = new EdumateService.DbPara();
+            arrObj[0].ParaName = "@LoginName";
+            arrObj[0].ParaValue = objprp.loginName;
+            arrObj[1] = new EdumateService.DbPara();
+            arrObj[1].ParaName = "@password";
+            arrObj[1].ParaValue = objprp.loginPassword;
+            arrObj[2] = new EdumateService.DbPara();
+            arrObj[2].ParaName = "@IPaddress";
+            arrObj[2].ParaValue = objprp.IPaddress;
+            return proxy.EdumateExecuteScalarSP(out msg, out msg1, arrObj, "spCheckLogin");
 
         }
 
@@ -344,15 +350,20 @@ namespace nmsProfile
         public string CheckInstituteLogin(prpLogin objprp)
         {
             
-            adoBL.ArrayPram = new SqlParameter[3];
-            adoBL.ArrayPram[0] = new SqlParameter("@LoginName", objprp.loginName);
-            adoBL.ArrayPram[1] = new SqlParameter("@password", objprp.loginPassword);
-            adoBL.ArrayPram[2] = new SqlParameter("@IPaddress", objprp.IPaddress);
-            //adoBL.SPName = "SpCheckInstituteLogin";    // coment by devesh
-            adoBL.SPName = "SpCheckInstituteLoginDevesh";
-
-            return ADO.ScalarQueryWithProceduresandParam(adoBL);
-
+            proxy = new EdumateService.EdumateServiceClient();
+            EdumateService.listReturns[] objlistRet = new EdumateService.listReturns[1];
+            EdumateService.DbPara[] arrObj = new EdumateService.DbPara[3];
+            arrObj[0] = new EdumateService.DbPara();
+            arrObj[0].ParaName = "@LoginName";
+            arrObj[0].ParaValue = objprp.loginName;
+            arrObj[1] = new EdumateService.DbPara();
+            arrObj[1].ParaName = "@password";
+            arrObj[1].ParaValue = objprp.loginPassword;
+            arrObj[2] = new EdumateService.DbPara();
+            arrObj[2].ParaName = "@IPaddress";
+            arrObj[2].ParaValue = objprp.IPaddress;
+            return proxy.EdumateExecuteScalarSP(out msg, out msg1, arrObj, "SpCheckInstituteLoginDevesh");
+            
         }
 
 

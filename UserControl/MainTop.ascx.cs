@@ -12,14 +12,9 @@ using st;
 
 public partial class UserControl_MainTop : System.Web.UI.UserControl
 {
-    //clsBLSetup obj;
-    //PRPSetup objprp, objparm;
-    //static string Id = "";
-    //string strcon = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
-    DataSet ds;
     string name = "";
     string UniNames = "";
-
+    DataSet ds;
     EdumateService.EdumateServiceClient proxy;
     string msg, msg1;
     protected void Page_Load(object sender, EventArgs e)
@@ -38,13 +33,6 @@ public partial class UserControl_MainTop : System.Web.UI.UserControl
     public void BindCountry()
     {
         proxy = new EdumateService.EdumateServiceClient();
-        //SqlConnection con = new SqlConnection(strcon);
-        //SqlCommand cmd = new SqlCommand("viewCountryDetails", con);
-        //cmd.CommandType = CommandType.StoredProcedure;
-        //SqlParameter[] paramsToStore =
-        //   new SqlParameter[4];
-        //SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //da.Fill(ds);
         ds = new DataSet();
         EdumateService.DbPara[] arrObj = new EdumateService.DbPara[0];
         ds = proxy.EdumateGetDataSetSP(out msg, out msg1, arrObj, "viewCountryDetails");
@@ -53,10 +41,5 @@ public partial class UserControl_MainTop : System.Web.UI.UserControl
         ddlcountry.DataTextField = "name";
         ststics1.ddlname = "Country";
         ddlcountry.DataBind();
-
-
     }
-
-
-
 }

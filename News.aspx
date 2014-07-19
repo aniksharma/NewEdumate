@@ -306,7 +306,7 @@
 <tr>
 <td id="news" runat="server">
 <div class="left-sectn middle-sectn-add">
-<%for (int i = 0; i < TotalCount; i++)
+<%for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
 {string Newsid = ds.Tables[0].Rows[i]["newsID"].ToString();
 string linkuniname = ds.Tables[0].Rows[i]["newsTitle"].ToString();
 string linkemail = ds.Tables[0].Rows[i]["SubTitle"].ToString();
@@ -335,7 +335,7 @@ string NewsTitle = ds.Tables[0].Rows[i]["newsTitle"].ToString();
             <td id="articles" runat="server">
                 <div class="left-sectn">
                     <% 
-                        for (int i = 0; i < TotalCount2; i++)
+                        for (int i = 0; i < ds2.Tables[0].Rows.Count; i++)
                         {
 
                             string Newsid = ds2.Tables[0].Rows[i]["newsID"].ToString();
@@ -373,7 +373,7 @@ string NewsTitle = ds.Tables[0].Rows[i]["newsTitle"].ToString();
             <td id="alerts" runat="server">
                 <div class="left-sectn">
                     <% 
-                        for (int i = 0; i < TotalCount1; i++)
+                        for (int i = 0; i < ds1.Tables[0].Rows.Count; i++)
                         {
 
                             string Newsid = ds1.Tables[0].Rows[i]["newsID"].ToString();
