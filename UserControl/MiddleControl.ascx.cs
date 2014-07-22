@@ -500,11 +500,11 @@ public partial class UserControl_MiddleControl : System.Web.UI.UserControl
         SqlConnection con = new SqlConnection(strcon);
         SqlCommand cmd = new SqlCommand("GetAllCategoryType", con);
         cmd.CommandType = CommandType.StoredProcedure;
-        SqlParameter[] paramsToStore =
-           new SqlParameter[4];
-        paramsToStore[0] = new SqlParameter("@catType", SqlDbType.NVarChar);
-        paramsToStore[0].Size = 20;
-        cmd.Parameters.Add(paramsToStore[0]).Value = catType;
+        //SqlParameter[] paramsToStore =
+        //   new SqlParameter[4];
+        //paramsToStore[0] = new SqlParameter("@catType", SqlDbType.NVarChar);
+        //paramsToStore[0].Size = 20;
+        //cmd.Parameters.Add(paramsToStore[0]).Value = catType;
         SqlDataAdapter da = new SqlDataAdapter(cmd);
         da.Fill(ds7);
         ddl.DataSource = ds7;
@@ -515,9 +515,6 @@ public partial class UserControl_MiddleControl : System.Web.UI.UserControl
     }
     public void BindSubCategory()
     {
-
-
-
         SqlConnection con = new SqlConnection(strcon);
         SqlCommand cmd = new SqlCommand("crsViewAllSubCategory", con);
         cmd.CommandType = CommandType.StoredProcedure;
@@ -723,7 +720,7 @@ public partial class UserControl_MiddleControl : System.Web.UI.UserControl
         }
         else
         {
-            arrObj[3].ParaValue = ddlstate1.SelectedValue; ;
+            arrObj[3].ParaValue = ddlstate1.SelectedValue;
         }
 
         arrObj[4] = new EdumateService.DbPara();
