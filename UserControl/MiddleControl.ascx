@@ -379,7 +379,7 @@ margin-bottom: 20px;
 
                     string Collegeid = ds5.Tables[0].Rows[i]["CollegeID"].ToString();
                     string cntid = ds5.Tables[0].Rows[i]["cntId"].ToString();
-                    string code = ds5.Tables[0].Rows[i]["collegeCod"].ToString();
+                    //string code = ds5.Tables[0].Rows[i]["collegeCod"].ToString();
                     string link = ds5.Tables[0].Rows[i]["cityName"].ToString();
                     string linkuniname = ds5.Tables[0].Rows[i]["collegeName"].ToString();
                     string linkemail = ds5.Tables[0].Rows[i]["collegeEmailID"].ToString();
