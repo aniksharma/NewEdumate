@@ -31,8 +31,6 @@ public partial class ViewUniDetails : System.Web.UI.Page
     string contid = "";
     string UniId = "";
     string ContIds = "";
-    EdumateService.EdumateServiceClient proxy;
-    string msg, msg1;
     protected void Page_Load(object sender, EventArgs e)
     {;
         if (!Page.IsPostBack)
@@ -124,49 +122,33 @@ public partial class ViewUniDetails : System.Web.UI.Page
     private void SelectDatail(Int32 pageIndex)
     {
 
-        //bl = new clsBLSetup();
-        //prppram = new PRPSetup();
-        //Int32 pageSize = Convert.ToInt32(ddlNopage.SelectedValue);
-        //prppram.pageIndex = pageIndex.ToString();
-        //prppram.pageSize = pageSize.ToString();
-        //SqlConnection con = new SqlConnection(strcon);
-        //SqlCommand cmd = new SqlCommand("viewUniversityType_srikant", con);
-        //cmd.CommandType = CommandType.StoredProcedure;
-        //SqlParameter[] paramsToStore =
-        //   new SqlParameter[4];
+        bl = new clsBLSetup();
+        prppram = new PRPSetup();
+        Int32 pageSize = Convert.ToInt32(ddlNopage.SelectedValue);
 
-        //paramsToStore[0] = new SqlParameter("@pageSize", SqlDbType.NVarChar);
-        //paramsToStore[0].Size = 20;
-        //cmd.Parameters.Add(paramsToStore[0]).Value = ddlNopage.SelectedValue;
-        //paramsToStore[1] = new SqlParameter("@pageIndex", SqlDbType.NVarChar);
-        //paramsToStore[1].Size = 100;
-        //cmd.Parameters.Add(paramsToStore[1]).Value = pageIndex;
-        //paramsToStore[2] = new SqlParameter("@contid", SqlDbType.Int);
-        //paramsToStore[2].Size = 60;
-        //cmd.Parameters.Add(paramsToStore[2]).Value = 1;
-        //paramsToStore[3] = new SqlParameter("@uniD", SqlDbType.Int);
-        //paramsToStore[3].Size = 60;
-        //cmd.Parameters.Add(paramsToStore[3]).Value = 1;
-        //SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //da.Fill(ds);
+        prppram.pageIndex = pageIndex.ToString();
+        prppram.pageSize = pageSize.ToString();
+        SqlConnection con = new SqlConnection(strcon);
+        SqlCommand cmd = new SqlCommand("viewUniversityType_srikant", con);
+        cmd.CommandType = CommandType.StoredProcedure;
+        SqlParameter[] paramsToStore =
+           new SqlParameter[4];
+
+        paramsToStore[0] = new SqlParameter("@pageSize", SqlDbType.NVarChar);
+        paramsToStore[0].Size = 20;
+        cmd.Parameters.Add(paramsToStore[0]).Value = ddlNopage.SelectedValue;
+        paramsToStore[1] = new SqlParameter("@pageIndex", SqlDbType.NVarChar);
+        paramsToStore[1].Size = 100;
+        cmd.Parameters.Add(paramsToStore[1]).Value = pageIndex;
+        paramsToStore[2] = new SqlParameter("@contid", SqlDbType.Int);
+        paramsToStore[2].Size = 60;
+        cmd.Parameters.Add(paramsToStore[2]).Value =1;
+        paramsToStore[3] = new SqlParameter("@uniD", SqlDbType.Int);
+        paramsToStore[3].Size = 60;
+        cmd.Parameters.Add(paramsToStore[3]).Value = 1;
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
         //----------------------------------------------
-        //Updated by Anik
-        proxy = new EdumateService.EdumateServiceClient();
-        EdumateService.DbPara[] arrObj = new EdumateService.DbPara[4];
-        arrObj[0] = new EdumateService.DbPara();
-        arrObj[0].ParaName = "@pageSize";
-        arrObj[0].ParaValue = ddlNopage.SelectedValue;
-        arrObj[1] = new EdumateService.DbPara();
-        arrObj[1].ParaName = "@pageIndex";
-        arrObj[1].ParaValue = pageIndex.ToString();
-        arrObj[2] = new EdumateService.DbPara();
-        arrObj[2].ParaName = "@contid";
-        arrObj[2].ParaValue = "1";
-        arrObj[3] = new EdumateService.DbPara();
-        arrObj[3].ParaName = "@uniD";
-        arrObj[3].ParaValue = "1";
-
-        ds = proxy.EdumateGetDataSetSP(out msg, out msg1, arrObj, "viewUniversityType_srikant");
         if (ds.Tables[0].Rows.Count > 0)
         {
             TotalCount = ds.Tables[0].Rows.Count;

@@ -33,7 +33,6 @@ public partial class UniversityMain : System.Web.UI.Page
 
     int stateid;
     protected string StateName = "";
-    EdumateService.EdumateServiceClient Proxy;
     protected void Page_Load(object sender, EventArgs e)
     {
         
@@ -66,18 +65,12 @@ public partial class UniversityMain : System.Web.UI.Page
 
     public void bindUNI()
     {
-        //updated by Anik
-
-        //SqlConnection con = new SqlConnection(strcon);
-        //SqlCommand cmd = new SqlCommand("viewUniversityWeb_srikant", con);
-        //cmd.CommandType = CommandType.StoredProcedure;
-        //SqlParameter[] paramsToStore =
-        //   new SqlParameter[4];
-        //SqlDataAdapter da = new SqlDataAdapter(cmd);
-        string msg, msg1;
-        SqlDataAdapter da = new SqlDataAdapter();
-        EdumateService.DbPara[] arrObj = new EdumateService.DbPara[0];
-        ds = Proxy.EdumateGetDataSetSP(out msg, out msg1, arrObj, "viewUniversityWeb_srikant");
+        SqlConnection con = new SqlConnection(strcon);
+        SqlCommand cmd = new SqlCommand("viewUniversityWeb_srikant", con);
+        cmd.CommandType = CommandType.StoredProcedure;
+        SqlParameter[] paramsToStore =
+           new SqlParameter[4];
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
         da.Fill(ds);
         TotalCount = ds.Tables[0].Rows.Count;
 
@@ -85,17 +78,14 @@ public partial class UniversityMain : System.Web.UI.Page
 
     public void BindImage()
     {
-        //Updated by Anik
-        //SqlConnection con = new SqlConnection(strcon);
-        //SqlCommand cmd = new SqlCommand("viewImageGalleryHome", con);
-        //cmd.CommandType = CommandType.StoredProcedure;
-        //SqlParameter[] paramsToStore =
-        //   new SqlParameter[4];
-        //SqlDataAdapter da = new SqlDataAdapter(cmd);
-        string msg, msg1;
-        SqlDataAdapter da = new SqlDataAdapter();
-        EdumateService.DbPara[] arrObj = new EdumateService.DbPara[0];
-        ds = Proxy.EdumateGetDataSetSP(out msg, out msg1, arrObj, "viewImageGalleryHome");
+        SqlConnection con = new SqlConnection(strcon);
+        SqlCommand cmd = new SqlCommand("viewImageGalleryHome", con);
+        cmd.CommandType = CommandType.StoredProcedure;
+        SqlParameter[] paramsToStore =
+           new SqlParameter[4];
+
+
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
         da.Fill(dsImage);
 
 
