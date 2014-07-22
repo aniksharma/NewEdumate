@@ -31,6 +31,8 @@ public partial class CollegeDetails : System.Web.UI.Page
     string UniId = "";
     string ContIds = "";
     protected DataSet dss = new DataSet();
+    EdumateService.EdumateServiceClient proxy;
+    string msg, msg1;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
@@ -92,13 +94,17 @@ public partial class CollegeDetails : System.Web.UI.Page
     }
     public void BindImage()
     {
-        SqlConnection con = new SqlConnection(strcon);
-        SqlCommand cmd = new SqlCommand("viewImageGalleryHome", con);
-        cmd.CommandType = CommandType.StoredProcedure;
-        SqlParameter[] paramsToStore =
-           new SqlParameter[4];
-        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        da.Fill(dsImage);
+        //SqlConnection con = new SqlConnection(strcon);
+        //SqlCommand cmd = new SqlCommand("viewImageGalleryHome", con);
+        //cmd.CommandType = CommandType.StoredProcedure;
+        //SqlParameter[] paramsToStore =
+        //   new SqlParameter[4];
+        //SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //da.Fill(dsImage);
+        proxy = new EdumateService.EdumateServiceClient();
+        EdumateService.DbPara[] arrObj = new EdumateService.DbPara[0];
+        dsImage = proxy.EdumateGetDataSetSP(out msg, out msg1, arrObj, "viewImageGalleryHome");
+        
         Totalimage = dsImage.Tables[0].Rows.Count;
 
     }
@@ -109,34 +115,49 @@ public partial class CollegeDetails : System.Web.UI.Page
     private void SelectDatail(Int32 pageIndex)
     {
 
-        bl = new clsBLSetup();
-        prppram = new PRPSetup();
-        Int32 pageSize = Convert.ToInt32(ddlNopage.SelectedValue);
+        //bl = new clsBLSetup();
+        //prppram = new PRPSetup();
+        //Int32 pageSize = Convert.ToInt32(ddlNopage.SelectedValue);
 
-        prppram.pageIndex = pageIndex.ToString();
-        prppram.pageSize = pageSize.ToString();
+        //prppram.pageIndex = pageIndex.ToString();
+        //prppram.pageSize = pageSize.ToString();
 
-        SqlConnection con = new SqlConnection(strcon);
-        SqlCommand cmd = new SqlCommand("viewCollegeType_srikant", con);
-        cmd.CommandType = CommandType.StoredProcedure;
-        SqlParameter[] paramsToStore =
-           new SqlParameter[5];
-        paramsToStore[0] = new SqlParameter("@pageSize", SqlDbType.NVarChar);
-        paramsToStore[0].Size = 20;
-        cmd.Parameters.Add(paramsToStore[0]).Value = ddlNopage.SelectedValue;
-        paramsToStore[1] = new SqlParameter("@pageIndex", SqlDbType.NVarChar);
-        paramsToStore[1].Size = 100;
-        cmd.Parameters.Add(paramsToStore[1]).Value = pageIndex;
-        paramsToStore[2] = new SqlParameter("@ContId", SqlDbType.Int);
-        paramsToStore[2].Size = 60;
-        cmd.Parameters.Add(paramsToStore[2]).Value = "0";
-        paramsToStore[3] = new SqlParameter("@collegeID", SqlDbType.Int);
-        paramsToStore[3].Size = 60;
-        cmd.Parameters.Add(paramsToStore[3]).Value = ContIds;
-        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        da.Fill(ds);
+        //SqlConnection con = new SqlConnection(strcon);
+        //SqlCommand cmd = new SqlCommand("viewCollegeType_srikant", con);
+        //cmd.CommandType = CommandType.StoredProcedure;
+        //SqlParameter[] paramsToStore =
+        //   new SqlParameter[5];
+        //paramsToStore[0] = new SqlParameter("@pageSize", SqlDbType.NVarChar);
+        //paramsToStore[0].Size = 20;
+        //cmd.Parameters.Add(paramsToStore[0]).Value = ddlNopage.SelectedValue;
+        //paramsToStore[1] = new SqlParameter("@pageIndex", SqlDbType.NVarChar);
+        //paramsToStore[1].Size = 100;
+        //cmd.Parameters.Add(paramsToStore[1]).Value = pageIndex;
+        //paramsToStore[2] = new SqlParameter("@ContId", SqlDbType.Int);
+        //paramsToStore[2].Size = 60;
+        //cmd.Parameters.Add(paramsToStore[2]).Value = "0";
+        //paramsToStore[3] = new SqlParameter("@collegeID", SqlDbType.Int);
+        //paramsToStore[3].Size = 60;
+        //cmd.Parameters.Add(paramsToStore[3]).Value = ContIds;
+        //SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //da.Fill(ds);
 
-
+        //Updated by Anik
+        proxy = new EdumateService.EdumateServiceClient();
+        EdumateService.DbPara[] arrObj = new EdumateService.DbPara[4];
+        arrObj[0] = new EdumateService.DbPara();
+        arrObj[0].ParaName = "@pageSize";
+        arrObj[0].ParaValue = ddlNopage.SelectedValue;
+        arrObj[1] = new EdumateService.DbPara();
+        arrObj[1].ParaName = "@pageIndex";
+        arrObj[1].ParaValue = pageIndex.ToString();
+        arrObj[2] = new EdumateService.DbPara();
+        arrObj[2].ParaName = "@contid";
+        arrObj[2].ParaValue = "0";
+        arrObj[3] = new EdumateService.DbPara();
+        arrObj[3].ParaName = "@collegeID";
+        arrObj[3].ParaValue = ContIds;
+        ds = proxy.EdumateGetDataSetSP(out msg, out msg1, arrObj, "viewCollegeType_srikant");
 
         //----------------------------------------------
 

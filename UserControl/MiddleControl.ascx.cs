@@ -154,7 +154,7 @@ public partial class UserControl_MiddleControl : System.Web.UI.UserControl
                 ddlUniType.Items.Insert(0, "--Select Sub Category--");
                 //BindSubCategory();
                 ddl.Visible = true;
-                ddlUniType.Visible = false;
+                ddlUniType.Visible = true;
                 ddlstate1.Visible = true;
                 college.Visible = true;
                 ddlexam.Visible = false;
@@ -188,7 +188,7 @@ public partial class UserControl_MiddleControl : System.Web.UI.UserControl
                 ddlUniType.Items.Insert(0, "--Select Sub Category--");
                 //BindSubCategory();
                 ddl.Visible = true;
-                ddlUniType.Visible = false;
+                ddlUniType.Visible = true;
                 ddlstate1.Visible = true;
                 college.Visible = true;
                 ddlexam.Visible = false;
@@ -495,18 +495,23 @@ public partial class UserControl_MiddleControl : System.Web.UI.UserControl
 
     }
     public void bindcategory()
-    {
+        {
 
-        SqlConnection con = new SqlConnection(strcon);
-        SqlCommand cmd = new SqlCommand("GetAllCategoryType", con);
-        cmd.CommandType = CommandType.StoredProcedure;
-        SqlParameter[] paramsToStore =
-           new SqlParameter[4];
-        paramsToStore[0] = new SqlParameter("@catType", SqlDbType.NVarChar);
-        paramsToStore[0].Size = 20;
-        cmd.Parameters.Add(paramsToStore[0]).Value = catType;
-        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        da.Fill(ds7);
+        //SqlConnection con = new SqlConnection(strcon);
+        //SqlCommand cmd = new SqlCommand("GetAllCategoryType", con);
+        //cmd.CommandType = CommandType.StoredProcedure;
+        //SqlParameter[] paramsToStore =
+        //   new SqlParameter[4];
+        //paramsToStore[0] = new SqlParameter("@catType", SqlDbType.NVarChar);
+        //paramsToStore[0].Size = 20;
+        //cmd.Parameters.Add(paramsToStore[0]).Value = catType;
+        //SqlDataAdapter da = new SqlDataAdapter(cmd);
+            
+        //Updated by Anik
+        proxy = new EdumateService.EdumateServiceClient();
+        EdumateService.DbPara[] arrObj = new EdumateService.DbPara[0];
+        //da.Fill(ds7);
+        ds7 = proxy.EdumateGetDataSetSP(out msg, out msg1, arrObj, "GetAllCategoryType");
         ddl.DataSource = ds7;
         ddl.DataValueField = "id";
         ddl.DataTextField = "name";
@@ -515,29 +520,36 @@ public partial class UserControl_MiddleControl : System.Web.UI.UserControl
     }
     public void BindSubCategory()
     {
+        //SqlConnection con = new SqlConnection(strcon);
+        //SqlCommand cmd = new SqlCommand("crsViewAllSubCategory", con);
+        //cmd.CommandType = CommandType.StoredProcedure;
+        //SqlParameter[] paramsToStore =
+        //   new SqlParameter[4];
+        //paramsToStore[0] = new SqlParameter("@id", SqlDbType.NVarChar);
+        //paramsToStore[0].Size = 20;
+        //cmd.Parameters.Add(paramsToStore[0]).Value = ddl.SelectedValue;
+        //paramsToStore[1] = new SqlParameter("@Type", SqlDbType.NVarChar);
+        //paramsToStore[1].Size = 100;
+        //cmd.Parameters.Add(paramsToStore[1]).Value = ddlcountry.SelectedValue;
+        ////paramsToStore[2] = new SqlParameter("@topic", SqlDbType.VarChar);
+        ////paramsToStore[2].Size = 60;
+        ////cmd.Parameters.Add(paramsToStore[2]).Value = ddlChapter.SelectedValue.ToString();
 
+        //Updated by Anik
+        proxy = new EdumateService.EdumateServiceClient();
+        EdumateService.DbPara[] arrObj = new EdumateService.DbPara[2];
+        arrObj[0] = new EdumateService.DbPara();
+        arrObj[0].ParaName = "@id";
+        arrObj[0].ParaValue = ddl.SelectedValue;
+        arrObj[1] = new EdumateService.DbPara();
+        arrObj[1].ParaName = "@Type";
+        arrObj[1].ParaValue = ddlcountry.SelectedValue;
+        
+        ds3 = proxy.EdumateGetDataSetSP(out msg, out msg1, arrObj, "crsViewAllSubCategory");
+       // ------------------------------
 
-
-        SqlConnection con = new SqlConnection(strcon);
-        SqlCommand cmd = new SqlCommand("crsViewAllSubCategory", con);
-        cmd.CommandType = CommandType.StoredProcedure;
-        SqlParameter[] paramsToStore =
-           new SqlParameter[4];
-        paramsToStore[0] = new SqlParameter("@id", SqlDbType.NVarChar);
-        paramsToStore[0].Size = 20;
-        cmd.Parameters.Add(paramsToStore[0]).Value = ddl.SelectedValue;
-        paramsToStore[1] = new SqlParameter("@Type", SqlDbType.NVarChar);
-        paramsToStore[1].Size = 100;
-        cmd.Parameters.Add(paramsToStore[1]).Value = ddlcountry.SelectedValue;
-        //paramsToStore[2] = new SqlParameter("@topic", SqlDbType.VarChar);
-        //paramsToStore[2].Size = 60;
-        //cmd.Parameters.Add(paramsToStore[2]).Value = ddlChapter.SelectedValue.ToString();
-
-
-
-
-        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        da.Fill(ds3);
+        //SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //da.Fill(ds3);
         ddlUniType.DataSource = ds3;
         ddlUniType.DataValueField = "id";
         ddlUniType.DataTextField = "name";
@@ -702,8 +714,13 @@ public partial class UserControl_MiddleControl : System.Web.UI.UserControl
 
     private void SelectDatail(Int32 pageIndex)
     {
+        //Updated by Anik
+        prppram = new PRPSetup();
+        Int32 pageSize = Convert.ToInt32(ddlNopage.SelectedValue);
+
+        prppram.pageIndex = pageIndex.ToString();
+        prppram.pageSize = pageSize.ToString();
         proxy = new EdumateService.EdumateServiceClient();
-        ds = new DataSet();
         EdumateService.DbPara[] arrObj = new EdumateService.DbPara[5];
         arrObj[0] = new EdumateService.DbPara();
         arrObj[0].ParaName = "@pageSize";
@@ -790,65 +807,108 @@ public partial class UserControl_MiddleControl : System.Web.UI.UserControl
     private void SelectDatailnew(Int32 pageIndex)
     {
 
-        bl = new clsBLSetup();
+        //bl = new clsBLSetup();
         prppram = new PRPSetup();
         Int32 pageSize = Convert.ToInt32(ddlNopage.SelectedValue);
 
         prppram.pageIndex = pageIndex.ToString();
         prppram.pageSize = pageSize.ToString();
 
-        //---------for page work here
-        SqlConnection con = new SqlConnection(strcon);
-        SqlCommand cmd = new SqlCommand("viewCollegeDetail_srikant", con);
-        cmd.CommandType = CommandType.StoredProcedure;
-        SqlParameter[] paramsToStore =
-           new SqlParameter[7];
-        paramsToStore[0] = new SqlParameter("@pageSize", SqlDbType.NVarChar);
-        paramsToStore[0].Size = 20;
-        cmd.Parameters.Add(paramsToStore[0]).Value = ddlNopage.SelectedValue;
-        paramsToStore[1] = new SqlParameter("@pageIndex", SqlDbType.NVarChar);
-        paramsToStore[1].Size = 100;
-        cmd.Parameters.Add(paramsToStore[1]).Value = pageIndex;
-        paramsToStore[2] = new SqlParameter("@loginType", SqlDbType.NVarChar);
-        paramsToStore[2].Size = 60;
-        cmd.Parameters.Add(paramsToStore[2]).Value = Schoolid;
+        ////---------for page work here
+        //SqlConnection con = new SqlConnection(strcon);
+        //SqlCommand cmd = new SqlCommand("viewCollegeDetail_srikant", con);
+        //cmd.CommandType = CommandType.StoredProcedure;
+        //SqlParameter[] paramsToStore =
+        //   new SqlParameter[7];
+        //paramsToStore[0] = new SqlParameter("@pageSize", SqlDbType.NVarChar);
+        //paramsToStore[0].Size = 20;
+        //cmd.Parameters.Add(paramsToStore[0]).Value = ddlNopage.SelectedValue;
+        //paramsToStore[1] = new SqlParameter("@pageIndex", SqlDbType.NVarChar);
+        //paramsToStore[1].Size = 100;
+        //cmd.Parameters.Add(paramsToStore[1]).Value = pageIndex;
+        //paramsToStore[2] = new SqlParameter("@loginType", SqlDbType.NVarChar);
+        //paramsToStore[2].Size = 60;
+        //cmd.Parameters.Add(paramsToStore[2]).Value = Schoolid;
 
-        paramsToStore[3] = new SqlParameter("@ContId", SqlDbType.NVarChar);
-        paramsToStore[3].Size = 60;
-        cmd.Parameters.Add(paramsToStore[3]).Value = ddlcountry.SelectedValue;
+        //paramsToStore[3] = new SqlParameter("@ContId", SqlDbType.NVarChar);
+        //paramsToStore[3].Size = 60;
+        //cmd.Parameters.Add(paramsToStore[3]).Value = ddlcountry.SelectedValue;
 
-        paramsToStore[4] = new SqlParameter("@stateId", SqlDbType.NVarChar);
-        paramsToStore[4].Size = 60;
+        //paramsToStore[4] = new SqlParameter("@stateId", SqlDbType.NVarChar);
+        //paramsToStore[4].Size = 60;
 
-        if (ddlstate1.SelectedIndex == 0)
-        {
-            cmd.Parameters.Add(paramsToStore[4]).Value = 0;
-        }
-        else
-        {
-            cmd.Parameters.Add(paramsToStore[4]).Value = ddlstate1.SelectedValue;
-        }
+        //if (ddlstate1.SelectedIndex == 0)
+        //{
+        //    cmd.Parameters.Add(paramsToStore[4]).Value = 0;
+        //}
+        //else
+        //{
+        //    cmd.Parameters.Add(paramsToStore[4]).Value = ddlstate1.SelectedValue;
+        //}
 
-        paramsToStore[5] = new SqlParameter("@category", SqlDbType.NVarChar);
-        paramsToStore[5].Size = 60;
-        cmd.Parameters.Add(paramsToStore[5]).Value = ddl.SelectedValue;
+        //paramsToStore[5] = new SqlParameter("@category", SqlDbType.NVarChar);
+        //paramsToStore[5].Size = 60;
+        //cmd.Parameters.Add(paramsToStore[5]).Value = ddl.SelectedValue;
 
-        paramsToStore[6] = new SqlParameter("@subcategory", SqlDbType.NVarChar);
-        paramsToStore[6].Size = 60;
-        if (ddlUniType.SelectedIndex == 0)
-        {
-            cmd.Parameters.Add(paramsToStore[6]).Value = 0;
-        }
-        else
-        {
-            cmd.Parameters.Add(paramsToStore[6]).Value = ddlUniType.SelectedValue;
-        }
-        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        da.Fill(ds5);
+        //paramsToStore[6] = new SqlParameter("@subcategory", SqlDbType.NVarChar);
+        //paramsToStore[6].Size = 60;
+        //if (ddlUniType.SelectedIndex == 0)
+        //{
+        //    cmd.Parameters.Add(paramsToStore[6]).Value = 0;
+        //}
+        //else
+        //{
+        //    cmd.Parameters.Add(paramsToStore[6]).Value = ddlUniType.SelectedValue;
+        //}
+        //SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //da.Fill(ds5);
+        //TotalCount = ds5.Tables[0].Rows.Count;
 
         // Country = ds.Tables[0].Rows[0]["cntName"].ToString();
 
         //----------------------------------------------
+        //Updated by Anik
+        proxy = new EdumateService.EdumateServiceClient();
+        ds5 = new DataSet();
+        EdumateService.DbPara[] arrObj = new EdumateService.DbPara[7];
+        arrObj[0] = new EdumateService.DbPara();
+        arrObj[0].ParaName = "@pageSize";
+        arrObj[0].ParaValue = ddlNopage.SelectedValue;
+        arrObj[1] = new EdumateService.DbPara();
+        arrObj[1].ParaName = "@pageIndex";
+        arrObj[1].ParaValue = pageIndex.ToString();
+        arrObj[2] = new EdumateService.DbPara();
+        arrObj[2].ParaName = "@loginType";
+        arrObj[2].ParaValue = Schoolid;
+        arrObj[3] = new EdumateService.DbPara();
+        arrObj[3].ParaName = "@ContId";
+        arrObj[3].ParaValue = ddlcountry.SelectedValue;
+        arrObj[4] = new EdumateService.DbPara();
+        arrObj[4].ParaName = "@stateId";
+        
+        if (ddlstate1.SelectedIndex == 0)
+        {
+            arrObj[4].ParaValue = "0";
+        }
+        else
+        {
+            arrObj[4].ParaValue = ddlstate1.SelectedValue; ;
+        }
+
+        arrObj[5] = new EdumateService.DbPara();
+        arrObj[5].ParaName = "@category";
+        arrObj[5].ParaValue = ddl.SelectedValue;
+        arrObj[6] = new EdumateService.DbPara();
+        arrObj[6].ParaName = "@subcategory";
+        if (ddlUniType.SelectedIndex == 0)
+        {
+            arrObj[6].ParaValue = "0";
+        }
+        else
+        {
+            arrObj[6].ParaValue = ddlUniType.SelectedValue;
+        }
+        ds5 = proxy.EdumateGetDataSetSP(out msg, out msg1, arrObj, "viewCollegeDetail_srikant");
 
         TotalCount = ds5.Tables[0].Rows.Count;
 
@@ -857,7 +917,7 @@ public partial class UserControl_MiddleControl : System.Web.UI.UserControl
     private void SelectTeacherDatail(Int32 pageIndex)
     {
 
-        bl = new clsBLSetup();
+        //bl = new clsBLSetup();
         prppram = new PRPSetup();
         Int32 pageSize = Convert.ToInt32(ddlNopage.SelectedValue);
 
@@ -868,21 +928,24 @@ public partial class UserControl_MiddleControl : System.Web.UI.UserControl
 
 
 
-        SqlConnection con = new SqlConnection(strcon);
-        SqlCommand cmd = new SqlCommand("spteacherdetails", con);
-        cmd.CommandType = CommandType.StoredProcedure;
-        SqlParameter[] paramsToStore =
-           new SqlParameter[7];
-        paramsToStore[0] = new SqlParameter("@id", SqlDbType.NVarChar);
-        paramsToStore[0].Size = 20;
-        cmd.Parameters.Add(paramsToStore[0]).Value = ddlNopage.SelectedValue;
-        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        da.Fill(ds5);
+        //SqlConnection con = new SqlConnection(strcon);
+        //SqlCommand cmd = new SqlCommand("spteacherdetails", con);
+        //cmd.CommandType = CommandType.StoredProcedure;
+        //SqlParameter[] paramsToStore =
+        //   new SqlParameter[7];
+        //paramsToStore[0] = new SqlParameter("@id", SqlDbType.NVarChar);
+        //paramsToStore[0].Size = 20;
+        //cmd.Parameters.Add(paramsToStore[0]).Value = ddlNopage.SelectedValue;
+        //SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //da.Fill(ds5);
 
-
-
-        //----------------------------------------------
-
+        //Updated by Anik
+        proxy = new EdumateService.EdumateServiceClient();
+        EdumateService.DbPara[] arrObj = new EdumateService.DbPara[1];
+        arrObj[0] = new EdumateService.DbPara();
+        arrObj[0].ParaName = "@id";
+        arrObj[0].ParaValue = ddlNopage.SelectedValue;
+        ds5 = proxy.EdumateGetDataSetSP(out msg, out msg1, arrObj, "spteacherdetails");
         TotalCount = ds5.Tables[0].Rows.Count;
 
     }
